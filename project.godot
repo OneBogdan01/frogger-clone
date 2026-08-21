@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="BogiGodotTools"
-config/description="Code I reuse in my projects."
+config/name="Froggy Splat"
+config/description="Third entry for the 20 games challange."
 config/version="0.0.1"
 config/tags=PackedStringArray("template")
 run/main_scene="res://menu_template/scenes/opening/opening.tscn"
@@ -62,7 +62,7 @@ screenshot={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/translations/menus_translations.en.translation")
+locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_menus_template/base/translations/menus_translations.fr.translation")
 
 [maaacks_credits_scene]
 
@@ -87,3 +87,4 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
