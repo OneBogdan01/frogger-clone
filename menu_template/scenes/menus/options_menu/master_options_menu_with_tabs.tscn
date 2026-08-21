@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cr3oxcg6lcj6c"]
+
+[ext_resource type="Script" uid="uid://slkf0qe24ct4" path="res://menu_template/scenes/menus/options_menu/master_options_menu_with_tabs.gd" id="1_tytbe"]
+[ext_resource type="PackedScene" uid="uid://csh7dwljxte48" path="res://menu_template/scenes/menus/options_menu/game/game_options_menu.tscn" id="2_moreq"]
+[ext_resource type="PackedScene" uid="uid://dwyompiir4vpl" path="res://menu_template/scenes/menus/options_menu/input/input_options_menu.tscn" id="2_pe7jx"]
+[ext_resource type="PackedScene" uid="uid://dtdglbmkrqnkg" path="res://menu_template/scenes/menus/options_menu/input/input_extras_menu.tscn" id="3_hauay"]
+[ext_resource type="PackedScene" uid="uid://bnfva83ifigqp" path="res://menu_template/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="4_tmxq7"]
+[ext_resource type="PackedScene" uid="uid://ynuouy02ws8a" path="res://menu_template/scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="5_31fyd"]
+
+[node name="MasterOptionsMenu" type="TabContainer" unique_id=1111795112]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 0
+script = ExtResource("1_tytbe")
+show_input_sensitivity = true
+
+[node name="Game" parent="." unique_id=2066056515 instance=ExtResource("2_moreq")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Controls" parent="." unique_id=1827648101 instance=ExtResource("2_pe7jx")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Inputs" parent="." unique_id=1534818691 instance=ExtResource("3_hauay")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Audio" parent="." unique_id=506115522 instance=ExtResource("4_tmxq7")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Video" parent="." unique_id=382045299 instance=ExtResource("5_31fyd")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://1c7fb13bhptp"]
+
+[node name="OpenReportBugWindow" type="Button" unique_id=755446963]
+size_flags_horizontal = 4
+text = "Open Save Folder"

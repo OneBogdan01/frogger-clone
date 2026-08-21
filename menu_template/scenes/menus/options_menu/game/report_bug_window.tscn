@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://gvjc0j5srap4"]
+
+[ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_menus_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="1_8dhwt"]
+
+[node name="ReportBugWindow" type="Control" unique_id=1442665348]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ConfirmationOverlaidWindow" parent="." unique_id=1482267070 instance=ExtResource("1_8dhwt")]
+layout_mode = 0
+anchors_preset = 0
