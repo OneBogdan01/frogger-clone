@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bwdq42y7g7xjm"]
+
+[ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="1_f1kac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(16, 16)
+
+[node name="Lillypads" type="Area2D" unique_id=829702650]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178664468]
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=220123465]
+self_modulate = Color(0.59607846, 0.74509805, 0, 1)
+texture = ExtResource("1_f1kac")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bf6la3m7uvyre"]
+
+[ext_resource type="Script" uid="uid://cx8sn4bfim20q" path="res://scripts/player_frog.gd" id="1_ej6fs"]
+[ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="2_ej6fs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crfbw"]
+size = Vector2(16, 16)
+
+[node name="PlayerFrog" type="Area2D" unique_id=1957262225]
+collision_mask = 15
+script = ExtResource("1_ej6fs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=682310701]
+shape = SubResource("RectangleShape2D_crfbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1540444998]
+self_modulate = Color(1.973361e-06, 0.6017333, 0.27336267, 1)
+texture = ExtResource("2_ej6fs")
