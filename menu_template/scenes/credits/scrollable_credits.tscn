@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://vmk3mp2076j3"]
+
+[ext_resource type="Script" uid="uid://dij4win44xbm2" path="res://menu_template/scenes/credits/scrollable_credits.gd" id="1_xgydp"]
+[ext_resource type="PackedScene" uid="uid://dqorkspg8pjnh" path="res://menu_template/scenes/credits/credits_label.tscn" id="2_7awsj"]
+
+[node name="ScrollableCredits" type="Control" unique_id=1649718614]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xgydp")
+
+[node name="CreditsLabel" parent="." unique_id=967293869 instance=ExtResource("2_7awsj")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 0.0
+offset_bottom = 0.0
+text = "
+
+[font_size=48]Assets[/font_size]
+Source: [url=https://kenney.nl/]Kenney[/url]  
+
+[font_size=32]Font[/font_size]
+Monogram made by Vinícius Menézio (@vmenezio).
+Source: [url=https://datagoblin.itch.io/monogram]itch[/url]
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=200]res:///menu_template/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+
+[font_size=24]Godot Credits Scene[/font_size]
+[img=200]res:///menu_template/assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Credits-Scene]github: Godot-Credits-Scene[/url]  
+"
+fit_content = false
+scroll_active = true

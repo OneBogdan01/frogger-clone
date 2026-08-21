@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bkgsa5eou0u7x"]
+
+[ext_resource type="Script" uid="uid://cvhy1a4y2g1p1" path="res://template_scenes/utilities/scripts/pause_menu_controller.gd" id="1_segd2"]
+[ext_resource type="PackedScene" uid="uid://ccmxpdt2ymguc" path="res://menu_template/scenes/windows/pause_menu_layer.tscn" id="2_mbbrh"]
+
+[node name="Main" type="Node" unique_id=629126178]
+
+[node name="Label" type="Label" parent="." unique_id=1660498799]
+offset_right = 40.0
+offset_bottom = 13.0
+text = "Level 2 easy ey?"
+
+[node name="PauseMenuController" type="Node" parent="." unique_id=775200410]
+script = ExtResource("1_segd2")
+pause_menu_packed = ExtResource("2_mbbrh")

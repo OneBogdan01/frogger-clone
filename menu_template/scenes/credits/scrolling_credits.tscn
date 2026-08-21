@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cyy4kiiodbqhc"]
+
+[ext_resource type="Script" uid="uid://bopgxglq8kh3h" path="res://menu_template/scenes/credits/scrolling_credits.gd" id="1_7vrgs"]
+[ext_resource type="PackedScene" uid="uid://dqorkspg8pjnh" path="res://menu_template/scenes/credits/credits_label.tscn" id="2_bh3s7"]
+
+[node name="ScrollingCredits" type="Control" unique_id=1162279489]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vrgs")
+scroll_paused = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1039720129]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+scroll_vertical = 910
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=2067921385]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1552560353]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 480)
+layout_mode = 2
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" unique_id=1486745388 instance=ExtResource("2_bh3s7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+text = "
+
+[font_size=48]Assets[/font_size]
+Source: [url=https://kenney.nl/]Kenney[/url]  
+
+[font_size=32]Font[/font_size]
+Monogram made by Vinícius Menézio (@vmenezio).
+Source: [url=https://datagoblin.itch.io/monogram]itch[/url]
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=80]res:///menu_template/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+[font_size=24]Godot Credits Scene[/font_size]
+[img=80]res:///menu_template/assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Credits-Scene]github: Godot-Credits-Scene[/url]  
+"
+
+[node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1703782196]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 480)
+layout_mode = 2

@@ -1,0 +1,278 @@
+[gd_scene format=3 uid="uid://d0uyelmm2c8xq"]
+
+[ext_resource type="Script" uid="uid://7s77gytclc2w" path="res://template_scenes/utilities/scripts/asset_store_generator.gd" id="1_7on7k"]
+[ext_resource type="Texture2D" uid="uid://dxpjd84map15f" path="res://icon.svg" id="2_0sxh7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1h80"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_akhti"]
+font_size = 55
+
+[sub_resource type="LabelSettings" id="LabelSettings_oqbrn"]
+font_size = 200
+
+[sub_resource type="LabelSettings" id="LabelSettings_oq0q6"]
+font_size = 135
+
+[sub_resource type="LabelSettings" id="LabelSettings_s0xws"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_35n8e"]
+font_size = 105
+
+[sub_resource type="LabelSettings" id="LabelSettings_tx3n8"]
+font_size = 230
+
+[node name="AssetStoreGenerator" type="Control" unique_id=933942628]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7on7k")
+
+[node name="Screenshots" type="Control" parent="." unique_id=471624409]
+unique_name_in_owner = true
+anchors_preset = 0
+
+[node name="Icon" type="Control" parent="Screenshots" unique_id=177398076]
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="ItchCoverImage" type="Control" parent="Screenshots" unique_id=131657061]
+clip_contents = true
+anchors_preset = 0
+offset_right = 630.0
+offset_bottom = 500.0
+
+[node name="header_capsule" type="Control" parent="Screenshots" unique_id=25475010]
+anchors_preset = 0
+offset_right = 920.0
+offset_bottom = 430.0
+
+[node name="ColorRect" type="ColorRect" parent="Screenshots/header_capsule" unique_id=1187065263]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="Sprite2D" parent="Screenshots/header_capsule" unique_id=2032782327]
+position = Vector2(181, 202)
+scale = Vector2(2.36719, 2.25781)
+texture = ExtResource("2_0sxh7")
+
+[node name="Label" type="Label" parent="Screenshots/header_capsule" unique_id=1094318730]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 109.0
+offset_right = 1187.0
+offset_bottom = 330.0
+text = "Game Title"
+label_settings = SubResource("LabelSettings_t1h80")
+
+[node name="small_capsule" type="Control" parent="Screenshots" unique_id=2127201416]
+visible = false
+anchors_preset = 0
+offset_right = 462.0
+offset_bottom = 174.0
+
+[node name="ColorRect" type="ColorRect" parent="Screenshots/small_capsule" unique_id=620260741]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="Sprite2D" parent="Screenshots/small_capsule" unique_id=1060327970]
+position = Vector2(85, 86)
+scale = Vector2(1.04102, 0.994141)
+texture = ExtResource("2_0sxh7")
+
+[node name="Label" type="Label" parent="Screenshots/small_capsule" unique_id=1339721001]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 44.0
+offset_right = 459.0
+offset_bottom = 138.0
+text = "Game Title"
+label_settings = SubResource("LabelSettings_akhti")
+
+[node name="main_capsule" type="Control" parent="Screenshots" unique_id=2031466854]
+visible = false
+anchors_preset = 0
+offset_right = 1232.0
+offset_bottom = 706.0
+
+[node name="ColorRect" type="ColorRect" parent="Screenshots/main_capsule" unique_id=224799921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="Sprite2D" parent="Screenshots/main_capsule" unique_id=286655736]
+position = Vector2(586, 220)
+scale = Vector2(2.54932, 2.43453)
+texture = ExtResource("2_0sxh7")
+
+[node name="Label" type="Label" parent="Screenshots/main_capsule" unique_id=372353025]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 359.0
+offset_right = 1103.0
+offset_bottom = 632.0
+text = "Game Title"
+label_settings = SubResource("LabelSettings_oqbrn")
+
+[node name="vertical_capsule" type="Control" parent="Screenshots" unique_id=140714749]
+visible = false
+anchors_preset = 0
+offset_right = 748.0
+offset_bottom = 896.0
+
+[node name="ColorRect" type="ColorRect" parent="Screenshots/vertical_capsule" unique_id=316302896]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="Sprite2D" parent="Screenshots/vertical_capsule" unique_id=71880595]
+position = Vector2(388.422, 313.045)
+scale = Vector2(4.41528, 4.21647)
+texture = ExtResource("2_0sxh7")
+
+[node name="Label" type="Label" parent="Screenshots/vertical_capsule" unique_id=339345304]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 642.0
+offset_right = 725.0
+offset_bottom = 915.0
+text = "Game Title"
+label_settings = SubResource("LabelSettings_oq0q6")
+
+[node name="library_capsule" type="Control" parent="Screenshots" unique_id=543222062]
+visible = false
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 900.0
+
+[node name="ColorRect" type="ColorRect" parent="Screenshots/library_capsule" unique_id=1615843271]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="Sprite2D" parent="Screenshots/library_capsule" unique_id=1358782213]
+position = Vector2(286, 393)
+scale = Vector2(3.17639, 3.03336)
+texture = ExtResource("2_0sxh7")
+
+[node name="Label" type="Label" parent="Screenshots/library_capsule" unique_id=414778632]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 686.0
+offset_right = 743.0
+offset_bottom = 959.0
+text = "Game Title"
+label_settings = SubResource("LabelSettings_s0xws")
+
+[node name="library_header" type="Control" parent="Screenshots" unique_id=650835846]
+visible = false
+anchors_preset = 0
+offset_right = 920.0
+offset_bottom = 430.0
+
+[node name="ColorRect" type="ColorRect" parent="Screenshots/library_header" unique_id=1912875725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="Sprite2D" parent="Screenshots/library_header" unique_id=1764937350]
+position = Vector2(173.422, 187.484)
+scale = Vector2(2.18091, 2.08271)
+texture = ExtResource("2_0sxh7")
+
+[node name="Label" type="Label" parent="Screenshots/library_header" unique_id=699294359]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 120.0
+offset_right = 1377.0
+offset_bottom = 393.0
+text = "Game Title"
+label_settings = SubResource("LabelSettings_35n8e")
+
+[node name="library_hero" type="Control" parent="Screenshots" unique_id=143427576]
+visible = false
+anchors_preset = 0
+offset_right = 3840.0
+offset_bottom = 1240.0
+
+[node name="ColorRect" type="ColorRect" parent="Screenshots/library_hero" unique_id=110170547]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="Sprite2D" parent="Screenshots/library_hero" unique_id=481874237]
+position = Vector2(729, 570)
+scale = Vector2(8.34497, 7.96921)
+texture = ExtResource("2_0sxh7")
+
+[node name="library_logo" type="Control" parent="Screenshots" unique_id=563746577]
+visible = false
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Label" type="Label" parent="Screenshots/library_logo" unique_id=1746972662]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 178.0
+offset_right = 1236.0
+offset_bottom = 492.0
+text = "Game Title"
+label_settings = SubResource("LabelSettings_tx3n8")
+
+[node name="community_icon" type="Control" parent="Screenshots" unique_id=511787747]
+visible = false
+anchors_preset = 0
+offset_right = 184.0
+offset_bottom = 184.0
+
+[node name="Icon" type="Sprite2D" parent="Screenshots/community_icon" unique_id=1212819119]
+position = Vector2(91, 90)
+scale = Vector2(1.22461, 1.16803)
+texture = ExtResource("2_0sxh7")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1403147132]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=922515628]
+unique_name_in_owner = true
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(2000, 2000)
+render_target_update_mode = 4

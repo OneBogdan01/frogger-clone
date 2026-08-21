@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://csh7dwljxte48"]
+
+[ext_resource type="Script" uid="uid://sjton6pdfuv5" path="res://menu_template/scenes/menus/options_menu/game/game_options_menu.gd" id="1_dkfa2"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_menus_template/base/nodes/utilities/capture_focus.gd" id="2_bmq6s"]
+[ext_resource type="PackedScene" uid="uid://b6bl3n5mp3m1e" path="res://addons/maaacks_menus_template/base/nodes/menus/options_menu/option_control/list_option_control.tscn" id="2_ruequ"]
+[ext_resource type="Script" uid="uid://bgthh72eu0du" path="res://addons/maaacks_menus_template/base/nodes/windows/confirmation_overlaid_window.gd" id="4_bmq6s"]
+
+[node name="Game" type="MarginContainer" unique_id=2066056515]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+script = ExtResource("1_dkfa2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1251699420]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+script = ExtResource("2_bmq6s")
+search_depth = 2
+
+[node name="CameraShakeControl" parent="VBoxContainer" unique_id=683521251 instance=ExtResource("2_ruequ")]
+visible = false
+layout_mode = 2
+lock_titles = true
+option_values = [1.0, 0.75, 0.5, 0.0]
+option_titles = Array[String](["Normal", "Reduced", "Minimal", "None"])
+option_name = "Camera Shake"
+option_section = 3
+key = "CameraShake"
+section = "VideoSettings"
+property_type = 3
+default_value = 1.0
+
+[node name="SaveFolder" type="Button" parent="VBoxContainer" unique_id=162138459]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Open Saves Folder"
+
+[node name="OpenReportBugWindow" type="Button" parent="VBoxContainer" unique_id=551300482]
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Report a bug"
+
+[node name="ReportBugWindow" type="PanelContainer" parent="." unique_id=1482267070]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("4_bmq6s")
+exclusive_background_color = Color(0, 0, 0, 0.5)
+ui_cancel_closes = false
+
+[node name="ContentContainer" type="MarginContainer" parent="ReportBugWindow" unique_id=1755486830]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="BoxContainer" type="BoxContainer" parent="ReportBugWindow/ContentContainer" unique_id=394030069]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+vertical = true
+
+[node name="TitleMargin" type="MarginContainer" parent="ReportBugWindow/ContentContainer/BoxContainer" unique_id=1262022916]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = -14
+theme_override_constants/margin_top = -14
+theme_override_constants/margin_right = -14
+theme_override_constants/margin_bottom = 8
+
+[node name="BoxContainer" type="BoxContainer" parent="ReportBugWindow/ContentContainer/BoxContainer/TitleMargin" unique_id=1788474031]
+layout_mode = 2
+theme_override_constants/separation = 0
+vertical = true
+
+[node name="TitleLabel" type="Label" parent="ReportBugWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" unique_id=1049966061]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ReportBugWindow/ContentContainer/BoxContainer/TitleMargin/BoxContainer" unique_id=33373596]
+layout_mode = 2
+
+[node name="BodyMargin" type="MarginContainer" parent="ReportBugWindow/ContentContainer/BoxContainer" unique_id=590613964]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="ReportBugWindow/ContentContainer/BoxContainer/BodyMargin" unique_id=617407155]
+layout_mode = 2
+bbcode_enabled = true
+text = "To report a bug open your logs and saves folders:"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OpenReportBugWindow" type="Button" parent="ReportBugWindow/ContentContainer/BoxContainer" unique_id=755446963]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Open Saves Folder"
+
+[node name="OpenLogs" type="Button" parent="ReportBugWindow/ContentContainer/BoxContainer" unique_id=2034774938]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Open Logs Folder"
+
+[node name="SecondBodyMargin" type="MarginContainer" parent="ReportBugWindow/ContentContainer/BoxContainer" unique_id=403931279]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="ReportBugWindow/ContentContainer/BoxContainer/SecondBodyMargin" unique_id=1336659432]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Grab the latest logs and saved files where the bug occured and send them via my email:"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ReportBugWindow/ContentContainer/BoxContainer" unique_id=2010049363]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ReportBugWindow/ContentContainer/BoxContainer/MarginContainer" unique_id=1471638374]
+layout_mode = 2
+
+[node name="EmailButton" type="Button" parent="ReportBugWindow/ContentContainer/BoxContainer/MarginContainer/HBoxContainer" unique_id=903510606]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "Email"
+
+[node name="EmailText" type="RichTextLabel" parent="ReportBugWindow/ContentContainer/BoxContainer/MarginContainer/HBoxContainer" unique_id=1208857082]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+text = "tycro.games@gmail.com"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+selection_enabled = true
+
+[node name="MenuButtonsMargin" type="MarginContainer" parent="ReportBugWindow/ContentContainer/BoxContainer" unique_id=1413292752]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="MenuButtons" type="BoxContainer" parent="ReportBugWindow/ContentContainer/BoxContainer/MenuButtonsMargin" unique_id=1371114575]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 1
+script = ExtResource("2_bmq6s")
+
+[node name="CloseButton" type="Button" parent="ReportBugWindow/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" unique_id=314526102]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"
+
+[node name="ConfirmButton" type="Button" parent="ReportBugWindow/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" unique_id=1052970550]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="pressed" from="VBoxContainer/SaveFolder" to="." method="open_save_folder"]
+[connection signal="pressed" from="VBoxContainer/OpenReportBugWindow" to="." method="show_report_bug_window"]
+[connection signal="pressed" from="ReportBugWindow/ContentContainer/BoxContainer/OpenReportBugWindow" to="." method="open_save_folder"]
+[connection signal="pressed" from="ReportBugWindow/ContentContainer/BoxContainer/OpenLogs" to="." method="open_logs_folder"]
+[connection signal="pressed" from="ReportBugWindow/ContentContainer/BoxContainer/MarginContainer/HBoxContainer/EmailButton" to="." method="open_email"]
+[connection signal="pressed" from="ReportBugWindow/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/CloseButton" to="ReportBugWindow" method="close"]
+[connection signal="pressed" from="ReportBugWindow/ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons/ConfirmButton" to="ReportBugWindow" method="_on_confirm_button_pressed"]

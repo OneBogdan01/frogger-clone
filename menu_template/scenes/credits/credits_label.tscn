@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dqorkspg8pjnh"]
+
+[ext_resource type="Script" uid="uid://cc2wtqasev7le" path="res://addons/maaacks_menus_template/base/nodes/labels/credits_label.gd" id="1_hbcml"]
+
+[node name="CreditsLabel" type="RichTextLabel" unique_id=525943618]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+bbcode_enabled = true
+text = "
+
+[font_size=48]Assets[/font_size]
+Source: [url=https://kenney.nl/]Kenney[/url]  
+
+[font_size=32]Font[/font_size]
+Monogram made by Vinícius Menézio (@vmenezio).
+Source: [url=https://datagoblin.itch.io/monogram]itch[/url]
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+[img=120]res:///menu_template/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
+
+[font_size=24]Godot Credits Scene[/font_size]
+[img=120]res:///menu_template/assets/plugin_logo/logo.png[/img]  
+Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Marek Belski and contributors[/url]  
+Source: [url=https://github.com/Maaack/Godot-Credits-Scene]github: Godot-Credits-Scene[/url]  
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+script = ExtResource("1_hbcml")
+attribution_file_path = "res://menu_template/ATTRIBUTION.md"
+h1_font_size = 64
+h2_font_size = 48
+h3_font_size = 32
+h4_font_size = 24
+h5_font_size = 20
+h6_font_size = 16
+bold_headings = true
+max_image_width = 200
