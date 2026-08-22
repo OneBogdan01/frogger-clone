@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d0vxhdnust425"]
+
+[node name="Moveable" type="Area2D" unique_id=699619881]
+collision_layer = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1397262206]
