@@ -9,6 +9,7 @@ size = Vector2(16, 16)
 [node name="PlayerFrog" type="Area2D" unique_id=1957262225]
 collision_mask = 31
 script = ExtResource("1_ej6fs")
+platform_layers = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=682310701]
 shape = SubResource("RectangleShape2D_vmc2x")
@@ -19,6 +20,6 @@ texture = ExtResource("2_ej6fs")
 
 [node name="RayDirection" type="RayCast2D" parent="." unique_id=1517400757]
 unique_name_in_owner = true
-collision_mask = 16
+collision_mask = 18
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

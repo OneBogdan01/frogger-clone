@@ -4,7 +4,7 @@ extends Area2D
 @export var tile_size := 16.0
 @export var hop_time := .1
 @onready var ray_direction: RayCast2D = %RayDirection
-
+@export_flags_2d_physics var platform_layers
 const MOVES := {
 	"move_up": Vector2i.UP,
 	"move_down": Vector2i.DOWN,
@@ -16,7 +16,16 @@ var _tween: Tween
 signal player_killed
 
 
+func is_platform(area: Area2D):
+	return (area.collision_layer & platform_layers) != 0
+
+
 func destroy_player(obstacle_type: Obstacle.ObstacleType):
+	match obstacle_type:
+		Obstacle.ObstacleType.Water:
+			if get_overlapping_areas().any(is_platform):
+				print("on platform")
+				return
 	#TODO animate kill
 	#match obstacle_type:
 	#Obstacle.ObstacleType.Water:

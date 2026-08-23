@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bwdq42y7g7xjm" path="res://scenes/lillypad.tscn" id="2_vmc2x"]
 [ext_resource type="PackedScene" uid="uid://bf6la3m7uvyre" path="res://scenes/player_frog.tscn" id="3_5txwm"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="4_4oeiy"]
+[ext_resource type="PackedScene" uid="uid://32ryj7i8eemk" path="res://scenes/log.tscn" id="5_f1hsl"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_v462e"]
 tile_data = PackedInt32Array(0, 589825, 65555, 1, 589825, 19)
@@ -1167,7 +1168,7 @@ position = Vector2(72, 24)
 
 [node name="Boundaries" type="StaticBody2D" parent="StaticColliders" unique_id=1867739334]
 position = Vector2(0, 224)
-collision_layer = 16
+collision_layer = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticColliders/Boundaries" unique_id=1885876428]
 position = Vector2(0, -64)
@@ -1193,6 +1194,21 @@ script = ExtResource("4_4oeiy")
 position = Vector2(120, 60)
 shape = SubResource("RectangleShape2D_bhunq")
 debug_color = Color(0.47, 0.1692, 0.23437335, 0.41960785)
+
+[node name="Moveables" type="Node2D" parent="." unique_id=2033743252]
+position = Vector2(-56, 0)
+
+[node name="Log" parent="Moveables" unique_id=699619881 instance=ExtResource("5_f1hsl")]
+position = Vector2(120, 104)
+speed = 20.0
+
+[node name="Log2" parent="Moveables" unique_id=1426834545 instance=ExtResource("5_f1hsl")]
+position = Vector2(72, 104)
+speed = 20.0
+
+[node name="Log3" parent="Moveables" unique_id=2083407236 instance=ExtResource("5_f1hsl")]
+position = Vector2(24, 104)
+speed = 20.0
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="." unique_id=1937635269 node_paths=PackedStringArray("parent")]
 unique_name_in_owner = true

@@ -11,7 +11,16 @@ func _activated_lillypad():
 		level_completed.emit()
 		print("Level complete!")
 	else:
-		%PlayerSpawnPoint.spawn_player()
+		_player_respawn()
+
+
+func _player_killed():
+	#TODO add health check
+	_player_respawn()
+
+
+func _player_respawn():
+	%PlayerSpawnPoint.spawn_player()
 
 
 func _ready() -> void:
@@ -20,3 +29,4 @@ func _ready() -> void:
 		if lillypad:
 			_lillypad_to_activate += 1
 			lillypad.player_filled.connect(_activated_lillypad)
+	%PlayerSpawnPoint.player_killed.connect(_player_killed)

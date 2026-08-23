@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://d0vxhdnust425"]
 
+[ext_resource type="Script" uid="uid://cgu454fb4qwi" path="res://scripts/moveable.gd" id="1_jfuc4"]
+[ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="2_vir2f"]
+
 [node name="Moveable" type="Area2D" unique_id=699619881]
 collision_layer = 6
+script = ExtResource("1_jfuc4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1397262206]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=107639837]
+texture = ExtResource("2_vir2f")
+region_enabled = true
+region_rect = Rect2(496, 384, 48, 32)

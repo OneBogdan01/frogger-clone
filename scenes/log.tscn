@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://32ryj7i8eemk"]
+
+[ext_resource type="PackedScene" uid="uid://d0vxhdnust425" path="res://scenes/moveable.tscn" id="1_spugk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spugk"]
+size = Vector2(32, 18)
+
+[node name="Log" unique_id=699619881 instance=ExtResource("1_spugk")]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1397262206]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_spugk")
+
+[node name="Sprite2D" parent="." index="1" unique_id=107639837]
+region_rect = Rect2(272, 240, 32, 16)
