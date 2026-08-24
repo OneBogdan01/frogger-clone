@@ -1120,9 +1120,11 @@ pattern_0 = SubResource("TileMapPattern_v462e")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vmc2x"]
 normal = Vector2(1, 0)
+distance = -6.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5txwm"]
 normal = Vector2(-1, 0)
+distance = -6.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bhunq"]
 
@@ -1166,9 +1168,11 @@ position = Vector2(72, 24)
 
 [node name="StaticColliders" type="Node2D" parent="." unique_id=688433875]
 
-[node name="Boundaries" type="StaticBody2D" parent="StaticColliders" unique_id=1867739334]
+[node name="Boundaries" type="Area2D" parent="StaticColliders" unique_id=1416467678]
 position = Vector2(0, 224)
-collision_layer = 18
+collision_layer = 16
+script = ExtResource("4_4oeiy")
+obstacle_type = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticColliders/Boundaries" unique_id=1885876428]
 position = Vector2(0, -64)
@@ -1196,14 +1200,14 @@ shape = SubResource("RectangleShape2D_bhunq")
 debug_color = Color(0.47, 0.1692, 0.23437335, 0.41960785)
 
 [node name="Moveables" type="Node2D" parent="." unique_id=2033743252]
-position = Vector2(-56, 0)
+position = Vector2(-64, 0)
 
 [node name="Log" parent="Moveables" unique_id=699619881 instance=ExtResource("5_f1hsl")]
-position = Vector2(120, 104)
+position = Vector2(160, 104)
 speed = 20.0
 
 [node name="Log2" parent="Moveables" unique_id=1426834545 instance=ExtResource("5_f1hsl")]
-position = Vector2(72, 104)
+position = Vector2(96, 104)
 speed = 20.0
 
 [node name="Log3" parent="Moveables" unique_id=2083407236 instance=ExtResource("5_f1hsl")]

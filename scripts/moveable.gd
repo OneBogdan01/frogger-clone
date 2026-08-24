@@ -1,3 +1,4 @@
+class_name Moveable
 extends Area2D
 
 @export var speed: float = 100.0
@@ -6,6 +7,7 @@ extends Area2D
 
 var _direction := Vector2.RIGHT
 var _distance_traveled := 0.0
+signal moved(increment: Vector2)
 @export_enum("Left", "Right") var dir: String = "Right":
 	set(value):
 		dir = value
@@ -24,6 +26,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var increment := delta * speed * _direction
+	moved.emit(increment)
 	position += increment
 	_distance_traveled += increment.x
 	if _distance_traveled > distance_to_reset:

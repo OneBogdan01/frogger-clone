@@ -20,6 +20,9 @@ texture = ExtResource("2_ej6fs")
 
 [node name="RayDirection" type="RayCast2D" parent="." unique_id=1517400757]
 unique_name_in_owner = true
-collision_mask = 18
+collision_mask = 16
+collide_with_areas = true
+collide_with_bodies = false
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

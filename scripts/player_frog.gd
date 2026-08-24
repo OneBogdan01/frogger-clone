@@ -15,6 +15,12 @@ var _tween: Tween
 
 signal player_killed
 
+var original_parent: Node2D
+
+
+func _ready() -> void:
+	original_parent = get_parent()
+
 
 func is_platform(area: Area2D):
 	return (area.collision_layer & platform_layers) != 0
@@ -55,5 +61,20 @@ func move_frog(direction: Vector2i):
 		await _tween.finished
 
 
+func move_on_platform(increment: Vector2):
+	position += increment
+
+
 func _on_area_entered(area: Area2D) -> void:
-	print(area.name)
+	if is_platform(area):
+		print("moved by" + area.name)
+		var moveable = area as Moveable
+		moveable.moved.connect(move_on_platform)
+
+
+func _on_area_exited(area: Area2D) -> void:
+	print("exited" + area.name)
+	if is_platform(area):
+		print("disconnect by" + area.name)
+		var moveable = area as Moveable
+		moveable.moved.disconnect(move_on_platform)
