@@ -1,5 +1,5 @@
 class_name Moveable
-extends Area2D
+extends Node2D
 
 @export var speed: float = 100.0
 @export var multiply_on_reset: Vector2 = Vector2(0.0, 1.0)
@@ -21,13 +21,13 @@ func reset_position():
 
 
 func _ready() -> void:
-	_distance_traveled = position.x
+	_distance_traveled = absf(position.x)
 
 
 func _physics_process(delta: float) -> void:
 	var increment := delta * speed * _direction
 	moved.emit(increment)
 	position += increment
-	_distance_traveled += increment.x
+	_distance_traveled += absf(increment.x)
 	if _distance_traveled > distance_to_reset:
 		reset_position()

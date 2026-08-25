@@ -6,7 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bwdq42y7g7xjm" path="res://scenes/lillypad.tscn" id="2_vmc2x"]
 [ext_resource type="PackedScene" uid="uid://bf6la3m7uvyre" path="res://scenes/player_frog.tscn" id="3_5txwm"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="4_4oeiy"]
+[ext_resource type="PackedScene" uid="uid://b2borrhg4jpdi" path="res://scenes/car.tscn" id="4_pnjqe"]
 [ext_resource type="PackedScene" uid="uid://32ryj7i8eemk" path="res://scenes/log.tscn" id="5_f1hsl"]
+[ext_resource type="PackedScene" uid="uid://crtpvf5j5nnm7" path="res://scenes/turtle.tscn" id="6_c77qx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnjqe"]
+size = Vector2(40, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c77qx"]
+size = Vector2(24, 13)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_v462e"]
 tile_data = PackedInt32Array(0, 589825, 65555, 1, 589825, 19)
@@ -1120,11 +1128,11 @@ pattern_0 = SubResource("TileMapPattern_v462e")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vmc2x"]
 normal = Vector2(1, 0)
-distance = -6.0
+distance = -2.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5txwm"]
 normal = Vector2(-1, 0)
-distance = -6.0
+distance = -2.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bhunq"]
 
@@ -1135,14 +1143,225 @@ normal = Vector2(0, 1)
 size = Vector2(272, 88)
 
 [node name="World" type="Node2D" unique_id=1838088911 node_paths=PackedStringArray("lillypads_parent")]
+y_sort_enabled = true
 script = ExtResource("1_5txwm")
 lillypads_parent = NodePath("Lillypads")
 
+[node name="Moveables" type="Node2D" parent="." unique_id=2033743252]
+y_sort_enabled = true
+position = Vector2(-64, 0)
+
+[node name="Logs" type="Node2D" parent="Moveables" unique_id=1919024611]
+
+[node name="Log" parent="Moveables/Logs" unique_id=699619881 instance=ExtResource("5_f1hsl")]
+position = Vector2(160, 104)
+speed = 20.0
+
+[node name="Log2" parent="Moveables/Logs" unique_id=1426834545 instance=ExtResource("5_f1hsl")]
+position = Vector2(96, 104)
+speed = 20.0
+
+[node name="Log5" parent="Moveables/Logs" unique_id=703833051 instance=ExtResource("5_f1hsl")]
+position = Vector2(160, 72)
+speed = 37.0
+
+[node name="Log7" parent="Moveables/Logs" unique_id=1441027634 instance=ExtResource("5_f1hsl")]
+position = Vector2(232, 72)
+scale = Vector2(3.2, 1)
+speed = 37.0
+
+[node name="Log6" parent="Moveables/Logs" unique_id=866693871 instance=ExtResource("5_f1hsl")]
+position = Vector2(48, 72)
+scale = Vector2(2.12, 1)
+speed = 37.0
+
+[node name="Log4" parent="Moveables/Logs" unique_id=614740923 instance=ExtResource("5_f1hsl")]
+position = Vector2(27, 104)
+scale = Vector2(2.04, 1)
+speed = 20.0
+
+[node name="Log3" parent="Moveables/Logs" unique_id=2083407236 instance=ExtResource("5_f1hsl")]
+position = Vector2(261, 104)
+scale = Vector2(2.5999997, 1)
+speed = 20.0
+
+[node name="ToLeft" type="Node2D" parent="Moveables/Logs" unique_id=876967241]
+position = Vector2(368, 0)
+
+[node name="Log8" parent="Moveables/Logs/ToLeft" unique_id=1431764744 instance=ExtResource("5_f1hsl")]
+position = Vector2(-194.00002, 40.000004)
+scale = Vector2(3.2799997, 1)
+speed = 30.0
+dir = "Left"
+
+[node name="Log9" parent="Moveables/Logs/ToLeft" unique_id=115416906 instance=ExtResource("5_f1hsl")]
+position = Vector2(-80, 40.000004)
+scale = Vector2(1.9599996, 1)
+speed = 30.0
+dir = "Left"
+
+[node name="Log10" parent="Moveables/Logs/ToLeft" unique_id=1534545229 instance=ExtResource("5_f1hsl")]
+position = Vector2(-8, 40)
+scale = Vector2(1.9599996, 1)
+speed = 30.0
+dir = "Left"
+
+[node name="Turtles" type="Node2D" parent="Moveables" unique_id=1795956215]
+
+[node name="Turtle4" parent="Moveables/Turtles" unique_id=527713334 instance=ExtResource("6_c77qx")]
+position = Vector2(88, 56)
+speed = 45.0
+
+[node name="CollisionShape2D" parent="Moveables/Turtles/Turtle4" index="0" unique_id=1397262206]
+shape = SubResource("RectangleShape2D_pnjqe")
+
+[node name="Control" parent="Moveables/Turtles/Turtle4" index="1" unique_id=1757985487]
+offset_left = -24.0
+offset_right = 24.0
+under_water = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle" parent="Moveables/Turtles/Turtle4/Control" index="0" unique_id=207780019]
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle5" parent="Moveables/Turtles" unique_id=1054333717 instance=ExtResource("6_c77qx")]
+position = Vector2(253, 56)
+speed = 45.0
+
+[node name="Turtle" parent="Moveables/Turtles/Turtle5/Control" parent_id_path=PackedInt32Array(1054333717, 1757985487) index="0" unique_id=207780019]
+offset_left = 16.0
+offset_right = -16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle6" parent="Moveables/Turtles" unique_id=2140899683 instance=ExtResource("6_c77qx")]
+position = Vector2(192, 56)
+speed = 45.0
+
+[node name="CollisionShape2D" parent="Moveables/Turtles/Turtle6" index="0" unique_id=1397262206]
+shape = SubResource("RectangleShape2D_c77qx")
+
+[node name="Control" parent="Moveables/Turtles/Turtle6" index="1" unique_id=1757985487]
+offset_left = -16.0
+offset_right = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle" parent="Moveables/Turtles/Turtle6/Control" index="0" unique_id=207780019]
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle7" parent="Moveables/Turtles" unique_id=309979691 instance=ExtResource("6_c77qx")]
+position = Vector2(144, 56)
+speed = 45.0
+
+[node name="CollisionShape2D" parent="Moveables/Turtles/Turtle7" index="0" unique_id=1397262206]
+shape = SubResource("RectangleShape2D_c77qx")
+
+[node name="Control" parent="Moveables/Turtles/Turtle7" index="1" unique_id=1757985487]
+offset_left = -16.0
+offset_right = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle" parent="Moveables/Turtles/Turtle7/Control" index="0" unique_id=207780019]
+metadata/_edit_use_anchors_ = true
+
+[node name="ToLeft" type="Node2D" parent="Moveables/Turtles" unique_id=1490787567]
+position = Vector2(368, 0)
+
+[node name="Turtle" parent="Moveables/Turtles/ToLeft" unique_id=1384014878 instance=ExtResource("6_c77qx")]
+position = Vector2(-272, 88)
+dir = "Left"
+
+[node name="Control" parent="Moveables/Turtles/ToLeft/Turtle" index="1" unique_id=1757985487]
+under_water = true
+
+[node name="Turtle3" parent="Moveables/Turtles/ToLeft" unique_id=1301624844 instance=ExtResource("6_c77qx")]
+position = Vector2(-72, 88)
+dir = "Left"
+
+[node name="Turtle2" parent="Moveables/Turtles/ToLeft" unique_id=184407491 instance=ExtResource("6_c77qx")]
+position = Vector2(-168, 88)
+dir = "Left"
+
+[node name="Cars" type="Node2D" parent="Moveables" unique_id=1359648984]
+y_sort_enabled = true
+
+[node name="Moveable5" parent="Moveables/Cars" unique_id=89243421 instance=ExtResource("4_pnjqe")]
+position = Vector2(72, 176)
+scale = Vector2(-1, 1)
+speed = 25.0
+
+[node name="Moveable6" parent="Moveables/Cars" unique_id=1193680930 instance=ExtResource("4_pnjqe")]
+position = Vector2(160, 176)
+scale = Vector2(-1, 1)
+speed = 25.0
+
+[node name="Moveable13" parent="Moveables/Cars" unique_id=660182317 instance=ExtResource("4_pnjqe")]
+position = Vector2(120, 144)
+scale = Vector2(-0.56, 1)
+speed = 40.0
+
+[node name="Moveable14" parent="Moveables/Cars" unique_id=399374417 instance=ExtResource("4_pnjqe")]
+position = Vector2(168, 144)
+scale = Vector2(-1, 1)
+speed = 40.0
+
+[node name="Moveable15" parent="Moveables/Cars" unique_id=2026401667 instance=ExtResource("4_pnjqe")]
+position = Vector2(248, 144)
+scale = Vector2(-1, 1)
+speed = 40.0
+
+[node name="Moveable16" parent="Moveables/Cars" unique_id=323897811 instance=ExtResource("4_pnjqe")]
+position = Vector2(248, 144)
+scale = Vector2(-1, 1)
+speed = 40.0
+
+[node name="ToLeft" type="Node2D" parent="Moveables/Cars" unique_id=1939857175]
+y_sort_enabled = true
+position = Vector2(368, 0)
+
+[node name="Moveable10" parent="Moveables/Cars/ToLeft" unique_id=6851971 instance=ExtResource("4_pnjqe")]
+position = Vector2(-280, 128)
+scale = Vector2(3.08, 1)
+speed = 50.0
+distance_to_reset = 370
+dir = "Left"
+
+[node name="Moveable12" parent="Moveables/Cars/ToLeft" unique_id=74855364 instance=ExtResource("4_pnjqe")]
+position = Vector2(-136, 128)
+scale = Vector2(2.88, 1)
+speed = 50.0
+distance_to_reset = 370
+dir = "Left"
+
+[node name="Moveable2" parent="Moveables/Cars/ToLeft" unique_id=495912693 instance=ExtResource("4_pnjqe")]
+position = Vector2(-168, 192)
+speed = 20.0
+dir = "Left"
+
+[node name="Moveable4" parent="Moveables/Cars/ToLeft" unique_id=1286444493 instance=ExtResource("4_pnjqe")]
+position = Vector2(-256, 192)
+speed = 20.0
+dir = "Left"
+
+[node name="Moveable5" parent="Moveables/Cars/ToLeft" unique_id=1414885087 instance=ExtResource("4_pnjqe")]
+position = Vector2(-88, 192)
+speed = 20.0
+dir = "Left"
+
+[node name="Moveable8" parent="Moveables/Cars/ToLeft" unique_id=561387560 instance=ExtResource("4_pnjqe")]
+position = Vector2(-200, 160)
+dir = "Left"
+
+[node name="Moveable7" parent="Moveables/Cars/ToLeft" unique_id=1878775177 instance=ExtResource("4_pnjqe")]
+position = Vector2(-280, 160)
+dir = "Left"
+
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1420541415]
+z_index = -3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tilemaps" unique_id=19416871]
 tile_map_data = PackedByteArray("AAAAAAAAAQABABoAAAAAAAIAAQAbAAUAAAAAAAMAAQAbAAUAAAAAAAQAAQAbAAUAAAAAAAUAAQAbAAUAAAAAAAYAAQAbAAUAAAAAAAcAAQAFABgAAAAAAAgAAQALABMAAAAAAAkAAQALABMAAAAAAAoAAQALABMAAAAAAAsAAQALABMAAAAAAAwAAQALABMAAAAAAA0AAQALABsAAAAAAA4AAQABABgAAAABAAAAAQABABoAAAABAAIAAQAbAAUAAAABAAMAAQAbAAUAAAABAAQAAQAbAAUAAAABAAUAAQAbAAUAAAABAAYAAQAbAAUAAAABAAcAAQAFABgAAAABAAgAAQALABMAAAABAAkAAQALABMAAAABAAoAAQALABMAAAABAAsAAQALABMAAAABAAwAAQALABMAAAABAA0AAQALABsAAAABAA4AAQAAABgAAAACAAAAAQABABoAAAACAAIAAQAbAAUAAAACAAMAAQAbAAUAAAACAAQAAQAbAAUAAAACAAUAAQAbAAUAAAACAAYAAQAbAAUAAAACAAcAAQAEABgAAAACAAgAAQALABMAAAACAAkAAQALABMAAAACAAoAAQALABMAAAACAAsAAQALABMAAAACAAwAAQALABMAAAACAA0AAQALABsAAAACAA4AAQABABgAAAADAAAAAQABABoAAAADAAIAAQAbAAUAAAADAAMAAQAbAAUAAAADAAQAAQAbAAUAAAADAAUAAQAbAAUAAAADAAYAAQAbAAUAAAADAAcAAQAEABgAAAADAAgAAQALABMAAAADAAkAAQALABMAAAADAAoAAQALABMAAAADAAsAAQALABMAAAADAAwAAQALABMAAAADAA0AAQALABsAAAADAA4AAQABABgAAAAEAAAAAQABABoAAAAEAAIAAQAbAAUAAAAEAAMAAQAbAAUAAAAEAAQAAQAbAAUAAAAEAAUAAQAbAAUAAAAEAAYAAQAbAAUAAAAEAAcAAQAEABgAAAAEAAgAAQALABMAAAAEAAkAAQALABMAAAAEAAoAAQALABMAAAAEAAsAAQALABMAAAAEAAwAAQALABMAAAAEAA0AAQALABsAAAAEAA4AAQABABgAAAAFAAAAAQABABoAAAAFAAIAAQAbAAUAAAAFAAMAAQAbAAUAAAAFAAQAAQAbAAUAAAAFAAUAAQAbAAUAAAAFAAYAAQAbAAUAAAAFAAcAAQAEABgAAAAFAAgAAQALABMAAAAFAAkAAQALABMAAAAFAAoAAQALABMAAAAFAAsAAQALABMAAAAFAAwAAQALABMAAAAFAA0AAQALABsAAAAFAA4AAQABABgAAAAGAAAAAQABABoAAAAGAAIAAQAbAAUAAAAGAAMAAQAbAAUAAAAGAAQAAQAbAAUAAAAGAAUAAQAbAAUAAAAGAAYAAQAbAAUAAAAGAAcAAQAEABgAAAAGAAgAAQALABMAAAAGAAkAAQALABMAAAAGAAoAAQALABMAAAAGAAsAAQALABMAAAAGAAwAAQALABMAAAAGAA0AAQALABsAAAAGAA4AAQAAABgAAAAHAAAAAQABABoAAAAHAAIAAQAbAAUAAAAHAAMAAQAbAAUAAAAHAAQAAQAbAAUAAAAHAAUAAQAbAAUAAAAHAAYAAQAbAAUAAAAHAAcAAQAEABgAAAAHAAgAAQALABMAAAAHAAkAAQALABMAAAAHAAoAAQALABMAAAAHAAsAAQALABMAAAAHAAwAAQALABMAAAAHAA0AAQALABsAAAAHAA4AAQAAABgAAAAIAAAAAQABABoAAAAIAAIAAQAbAAUAAAAIAAMAAQAbAAUAAAAIAAQAAQAbAAUAAAAIAAUAAQAbAAUAAAAIAAYAAQAbAAUAAAAIAAcAAQAEABgAAAAIAAgAAQALABMAAAAIAAkAAQALABMAAAAIAAoAAQALABMAAAAIAAsAAQALABMAAAAIAAwAAQALABMAAAAIAA0AAQALABsAAAAIAA4AAQAAABgAAAAJAAAAAQABABoAAAAJAAIAAQAbAAUAAAAJAAMAAQAbAAUAAAAJAAQAAQAbAAUAAAAJAAUAAQAbAAUAAAAJAAYAAQAbAAUAAAAJAAcAAQAFABgAAAAJAAgAAQALABMAAAAJAAkAAQALABMAAAAJAAoAAQALABMAAAAJAAsAAQALABMAAAAJAAwAAQALABMAAAAJAA0AAQALABsAAAAJAA4AAQABABgAAAAKAAAAAQABABoAAAAKAAIAAQAbAAUAAAAKAAMAAQAbAAUAAAAKAAQAAQAbAAUAAAAKAAUAAQAbAAUAAAAKAAYAAQAbAAUAAAAKAAcAAQAFABgAAAAKAAgAAQALABMAAAAKAAkAAQALABMAAAAKAAoAAQALABMAAAAKAAsAAQALABMAAAAKAAwAAQALABMAAAAKAA0AAQALABsAAAAKAA4AAQABABgAAAALAAAAAQABABoAAAALAAIAAQAbAAUAAAALAAMAAQAbAAUAAAALAAQAAQAbAAUAAAALAAUAAQAbAAUAAAALAAYAAQAbAAUAAAALAAcAAQAEABgAAAALAAgAAQALABMAAAALAAkAAQALABMAAAALAAoAAQALABMAAAALAAsAAQALABMAAAALAAwAAQALABMAAAALAA0AAQALABsAAAALAA4AAQAAABgAAAAMAAAAAQABABoAAAAMAAIAAQAbAAUAAAAMAAMAAQAbAAUAAAAMAAQAAQAbAAUAAAAMAAUAAQAbAAUAAAAMAAYAAQAbAAUAAAAMAAcAAQAEABgAAAAMAAgAAQALABMAAAAMAAkAAQALABMAAAAMAAoAAQALABMAAAAMAAsAAQALABMAAAAMAAwAAQALABMAAAAMAA0AAQALABsAAAAMAA4AAQAAABgAAAANAAAAAQABABoAAAANAAIAAQAbAAUAAAANAAMAAQAbAAUAAAANAAQAAQAbAAUAAAANAAUAAQAbAAUAAAANAAYAAQAbAAUAAAANAAcAAQAEABgAAAANAAgAAQALABMAAAANAAkAAQALABMAAAANAAoAAQALABMAAAANAAsAAQALABMAAAANAAwAAQALABMAAAANAA0AAQALABsAAAANAA4AAQAAABgAAAAOAAAAAQABABoAAAAOAAIAAQAbAAUAAAAOAAMAAQAbAAUAAAAOAAQAAQAbAAUAAAAOAAUAAQAbAAUAAAAOAAYAAQAbAAUAAAAOAAcAAQAEABgAAAAOAAgAAQALABMAAAAOAAkAAQALABMAAAAOAAoAAQALABMAAAAOAAsAAQALABMAAAAOAAwAAQALABMAAAAOAA0AAQALABsAAAAOAA4AAQAAABgAAAA=")
 tile_set = SubResource("TileSet_bhunq")
+metadata/_edit_lock_ = true
 
 [node name="RoadsTraffic" type="TileMapLayer" parent="Tilemaps" unique_id=1147003436]
 visible = false
@@ -1198,21 +1417,7 @@ script = ExtResource("4_4oeiy")
 position = Vector2(120, 60)
 shape = SubResource("RectangleShape2D_bhunq")
 debug_color = Color(0.47, 0.1692, 0.23437335, 0.41960785)
-
-[node name="Moveables" type="Node2D" parent="." unique_id=2033743252]
-position = Vector2(-64, 0)
-
-[node name="Log" parent="Moveables" unique_id=699619881 instance=ExtResource("5_f1hsl")]
-position = Vector2(160, 104)
-speed = 20.0
-
-[node name="Log2" parent="Moveables" unique_id=1426834545 instance=ExtResource("5_f1hsl")]
-position = Vector2(96, 104)
-speed = 20.0
-
-[node name="Log3" parent="Moveables" unique_id=2083407236 instance=ExtResource("5_f1hsl")]
-position = Vector2(24, 104)
-speed = 20.0
+metadata/_edit_lock_ = true
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="." unique_id=1937635269 node_paths=PackedStringArray("parent")]
 unique_name_in_owner = true
@@ -1222,3 +1427,9 @@ player_scene = ExtResource("3_5txwm")
 parent = NodePath("..")
 
 [connection signal="area_entered" from="StaticColliders/Water" to="StaticColliders/Water" method="_on_area_entered"]
+
+[editable path="Moveables/Turtles/Turtle4"]
+[editable path="Moveables/Turtles/Turtle5"]
+[editable path="Moveables/Turtles/Turtle6"]
+[editable path="Moveables/Turtles/Turtle7"]
+[editable path="Moveables/Turtles/ToLeft/Turtle"]

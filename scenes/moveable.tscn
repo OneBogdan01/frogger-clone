@@ -7,9 +7,9 @@
 collision_layer = 6
 script = ExtResource("1_jfuc4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1397262206]
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=107639837]
 texture = ExtResource("2_vir2f")
 region_enabled = true
 region_rect = Rect2(496, 384, 48, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1397262206]

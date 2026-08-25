@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="2_ej6fs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmc2x"]
-size = Vector2(16, 16)
+size = Vector2(14, 14)
 
 [node name="PlayerFrog" type="Area2D" unique_id=1957262225]
+y_sort_enabled = true
 collision_mask = 31
 script = ExtResource("1_ej6fs")
 platform_layers = 4

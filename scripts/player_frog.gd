@@ -30,7 +30,6 @@ func destroy_player(obstacle_type: Obstacle.ObstacleType):
 	match obstacle_type:
 		Obstacle.ObstacleType.Water:
 			if get_overlapping_areas().any(is_platform):
-				print("on platform")
 				return
 	#TODO animate kill
 	#match obstacle_type:
@@ -65,10 +64,15 @@ func move_on_platform(increment: Vector2):
 	position += increment
 
 
+func to_moveable(area: Area2D) -> Moveable:
+	var moveable_node = area as Node2D
+	return moveable_node as Moveable
+
+
 func _on_area_entered(area: Area2D) -> void:
 	if is_platform(area):
 		print("moved by" + area.name)
-		var moveable = area as Moveable
+		var moveable = to_moveable(area)
 		moveable.moved.connect(move_on_platform)
 
 
@@ -76,5 +80,5 @@ func _on_area_exited(area: Area2D) -> void:
 	print("exited" + area.name)
 	if is_platform(area):
 		print("disconnect by" + area.name)
-		var moveable = area as Moveable
+		var moveable = to_moveable(area)
 		moveable.moved.disconnect(move_on_platform)

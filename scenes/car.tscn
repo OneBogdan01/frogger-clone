@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b2borrhg4jpdi"]
+
+[ext_resource type="Script" uid="uid://cgu454fb4qwi" path="res://scripts/moveable.gd" id="1_qt2eu"]
+[ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="2_50v30"]
+[ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="2_jtldb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtldb"]
+size = Vector2(35, 14)
+
+[node name="Car" type="Node2D" unique_id=2026401667]
+script = ExtResource("1_qt2eu")
+speed = 30.0
+
+[node name="Moveable" type="Area2D" parent="." unique_id=699619881]
+collision_layer = 2
+script = ExtResource("2_jtldb")
+obstacle_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Moveable" unique_id=107639837]
+texture = ExtResource("2_50v30")
+region_enabled = true
+region_rect = Rect2(496, 384, 48, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveable" unique_id=1397262206]
+position = Vector2(1.5, 7)
+shape = SubResource("RectangleShape2D_jtldb")

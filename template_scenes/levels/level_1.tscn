@@ -43,3 +43,7 @@ render_target_update_mode = 4
 [node name="World" parent="AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=1838088911 instance=ExtResource("4_vmit2")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=622573161]
+
+[connection signal="level_completed" from="AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="load_next_level"]
+
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/World"]
