@@ -26,3 +26,15 @@ func _ready() -> void:
 			file_name = dir_access.get_next()
 	else:
 		push_error("An error occurred when trying to access the path.")
+
+
+func _player_died():
+	var has_health = false
+	for node in %HealthContainer.get_children():
+		var tex_rect = node as TextureRect
+		if tex_rect and tex_rect.visible:
+			tex_rect.hide()
+			has_health = true
+			break
+	if has_health == false:
+		%GameOverController.game_over()

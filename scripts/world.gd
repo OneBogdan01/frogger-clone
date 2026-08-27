@@ -1,12 +1,15 @@
 extends Node2D
+
 @export var lillypads_parent: Node2D
 
 var _lillypad_to_activate := 0
 signal level_completed
+signal player_died
 
 
 func _activated_lillypad():
 	_lillypad_to_activate -= 1
+	print("lilypad filled: %s" % _lillypad_to_activate)
 	if _lillypad_to_activate == 0:
 		level_completed.emit()
 		print("Level complete!")
@@ -15,11 +18,13 @@ func _activated_lillypad():
 
 
 func _player_killed():
-	#TODO add health check
+	player_died.emit()
+	print("player killed")
 	_player_respawn()
 
 
 func _player_respawn():
+	print("player respawned")
 	%PlayerSpawnPoint.spawn_player()
 
 

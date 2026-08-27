@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://dlrtpunufq30p" path="res://template_scenes/utilities/scripts/configure_levels.gd" id="1_ii7ac"]
 [ext_resource type="Script" uid="uid://cvhy1a4y2g1p1" path="res://template_scenes/utilities/scripts/pause_menu_controller.gd" id="1_w8vaw"]
 [ext_resource type="PackedScene" uid="uid://ccmxpdt2ymguc" path="res://menu_template/scenes/windows/pause_menu_layer.tscn" id="2_ii7ac"]
+[ext_resource type="Script" uid="uid://n5r7182uw8ar" path="res://menu_template/scenes/windows/game_over_controller.gd" id="4_ohfdh"]
 [ext_resource type="PackedScene" uid="uid://deyfkaw3fdaxx" path="res://template_scenes/levels/world.tscn" id="4_vmit2"]
+[ext_resource type="PackedScene" uid="uid://bxf8qo5a7e5o" path="res://menu_template/scenes/windows/game_over_layer.tscn" id="5_5wnsg"]
+[ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="5_v462e"]
 
 [node name="Main" type="Node" unique_id=629126178]
 script = ExtResource("1_ii7ac")
@@ -13,6 +16,11 @@ next_level = "uid://bkgsa5eou0u7x"
 [node name="PauseMenuController" type="Node" parent="." unique_id=775200410]
 script = ExtResource("1_w8vaw")
 pause_menu_packed = ExtResource("2_ii7ac")
+
+[node name="GameOverController" type="Node" parent="." unique_id=682752726]
+unique_name_in_owner = true
+script = ExtResource("4_ohfdh")
+game_over_menu_packed = ExtResource("5_5wnsg")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1535987377]
 anchors_preset = 15
@@ -44,6 +52,93 @@ render_target_update_mode = 4
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=622573161]
 
+[node name="HealthContainer" type="PanelContainer" parent="HUD" unique_id=1632563646]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_right = 80.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+
+[node name="HealthContainer" type="FlowContainer" parent="HUD/HealthContainer" unique_id=1109162122]
+unique_name_in_owner = true
+propagate_maximum_size = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HealthContainer/HealthContainer" unique_id=56380415]
+layout_mode = 2
+texture = ExtResource("5_v462e")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HUD/HealthContainer/HealthContainer" unique_id=1315490786]
+layout_mode = 2
+texture = ExtResource("5_v462e")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/HealthContainer/HealthContainer" unique_id=1624130195]
+layout_mode = 2
+texture = ExtResource("5_v462e")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HealthContainer" unique_id=672284633]
+layout_mode = 2
+theme_override_constants/margin_top = 22
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/HealthContainer/MarginContainer" unique_id=522449477]
+layout_mode = 2
+alignment = 1
+
+[node name="ScoreText" type="Label" parent="HUD/HealthContainer/MarginContainer/VBoxContainer" unique_id=1441197102]
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 16.26
+text = "Score"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="HUD/HealthContainer/MarginContainer/VBoxContainer" unique_id=686632281]
+layout_mode = 2
+text = "10000"
+horizontal_alignment = 1
+
+[node name="TimeContainer" type="PanelContainer" parent="HUD" unique_id=1056352698]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.53300005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = 64.15997
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+
+[node name="BoxContainer" type="HBoxContainer" parent="HUD/TimeContainer" unique_id=492378549]
+layout_mode = 2
+
+[node name="TimeText" type="Label" parent="HUD/TimeContainer/BoxContainer" unique_id=2018814481]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "Time"
+
+[node name="TimeSlider" type="VSlider" parent="HUD/TimeContainer/BoxContainer" unique_id=38357036]
+layout_mode = 2
+editable = false
+scrollable = false
+
 [connection signal="level_completed" from="AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="load_next_level"]
+[connection signal="player_died" from="AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="_player_died"]
 
 [editable path="AspectRatioContainer/SubViewportContainer/SubViewport/World"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/World/Moveables/Turtles/Turtle4"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/World/Moveables/Turtles/Turtle5"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/World/Moveables/Turtles/Turtle6"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/World/Moveables/Turtles/Turtle7"]
+[editable path="AspectRatioContainer/SubViewportContainer/SubViewport/World/Moveables/Turtles/ToLeft/Turtle"]
