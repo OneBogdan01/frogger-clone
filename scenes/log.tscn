@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://32ryj7i8eemk"]
 
 [ext_resource type="PackedScene" uid="uid://d0vxhdnust425" path="res://scenes/moveable.tscn" id="1_spugk"]
+[ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="2_k0uux"]
+[ext_resource type="Script" uid="uid://drs6bhm1r3nuq" path="res://scripts/trigger_periodically.gd" id="2_pt1ea"]
+[ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="4_vx63x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spugk"]
 size = Vector2(16, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5036"]
+radius = 7.0
 
 [node name="Log" unique_id=699619881 instance=ExtResource("1_spugk")]
 collision_layer = 4
@@ -12,5 +18,43 @@ collision_layer = 4
 region_rect = Rect2(272, 256, 32, 16)
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1397262206]
+unique_name_in_owner = true
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_spugk")
+
+[node name="TriggerPeriodically" type="Node2D" parent="." index="2" unique_id=618544893]
+visible = false
+position = Vector2(17, 0)
+script = ExtResource("2_pt1ea")
+under_water_color = Color(0.74, 0, 0, 1)
+outside_color = Color(0.56078434, 0.40392157, 0.24705882, 1)
+transition_duration = 1.0
+
+[node name="Obstacle" type="Area2D" parent="TriggerPeriodically" index="0" unique_id=1633595516]
+unique_name_in_owner = true
+collision_layer = 2
+script = ExtResource("4_vx63x")
+obstacle_type = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="TriggerPeriodically/Obstacle" index="0" unique_id=1767846225]
+texture = ExtResource("2_k0uux")
+
+[node name="ObstacleCollider" type="CollisionShape2D" parent="TriggerPeriodically/Obstacle" index="1" unique_id=1980927433]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_g5036")
+disabled = true
+debug_color = Color(0.96168846, 1.540184e-06, 0.51167804, 0.41960785)
+
+[node name="OverWater" type="Timer" parent="." index="3" unique_id=2067954267]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="UnderWater" type="Timer" parent="." index="4" unique_id=363067927]
+unique_name_in_owner = true
+wait_time = 1.5
+one_shot = true
+
+[connection signal="area_entered" from="TriggerPeriodically/Obstacle" to="TriggerPeriodically/Obstacle" method="_on_area_entered"]
+[connection signal="timeout" from="OverWater" to="TriggerPeriodically" method="_enter_water"]
+[connection signal="timeout" from="UnderWater" to="TriggerPeriodically" method="_exit_water"]
