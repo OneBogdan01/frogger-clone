@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="1_3p4ye"]
 [ext_resource type="Script" uid="uid://bajlin6hngfj" path="res://scripts/world.gd" id="1_5txwm"]
 [ext_resource type="Script" uid="uid://dlh72i1lfkfg2" path="res://scripts/player_spawn_point.gd" id="1_vmc2x"]
+[ext_resource type="PackedScene" uid="uid://dltxdn73f1yom" path="res://scenes/water_scrolling.tscn" id="2_nu41q"]
 [ext_resource type="PackedScene" uid="uid://bwdq42y7g7xjm" path="res://scenes/lillypad.tscn" id="2_vmc2x"]
 [ext_resource type="PackedScene" uid="uid://bf6la3m7uvyre" path="res://scenes/player_frog.tscn" id="3_5txwm"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="4_4oeiy"]
@@ -1149,6 +1150,20 @@ size = Vector2(272, 88)
 y_sort_enabled = true
 script = ExtResource("1_5txwm")
 lillypads_parent = NodePath("Lillypads")
+
+[node name="WaterWaves" parent="." unique_id=1192919985 instance=ExtResource("2_nu41q")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
 
 [node name="Moveables" type="Node2D" parent="." unique_id=2033743252]
 y_sort_enabled = true
