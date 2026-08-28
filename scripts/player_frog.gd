@@ -31,6 +31,9 @@ func destroy_player(obstacle_type: Obstacle.ObstacleType):
 		Obstacle.ObstacleType.WATER:
 			if get_overlapping_areas().any(is_platform):
 				return
+		Obstacle.ObstacleType.ANIMAL:
+			print("player eaten by an animal")
+
 	#TODO animate kill
 	#match obstacle_type:
 	#Obstacle.ObstacleType.Water:
