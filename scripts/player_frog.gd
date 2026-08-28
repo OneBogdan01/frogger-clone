@@ -28,7 +28,7 @@ func is_platform(area: Area2D):
 
 func destroy_player(obstacle_type: Obstacle.ObstacleType):
 	match obstacle_type:
-		Obstacle.ObstacleType.Water:
+		Obstacle.ObstacleType.WATER:
 			if get_overlapping_areas().any(is_platform):
 				return
 	#TODO animate kill

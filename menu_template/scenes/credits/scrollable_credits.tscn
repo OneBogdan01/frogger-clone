@@ -17,23 +17,23 @@ unique_name_in_owner = true
 layout_mode = 1
 offset_top = 0.0
 offset_bottom = 0.0
-text = "
+text = "[b][font_size=48]Made by Bogdan Mocanu for the [url=https://20_games_challenge.gitlab.io/challenge/#3]20 games challange[/url].[/font_size][/b]
 
-[font_size=48]Assets[/font_size]
+
+[b][font_size=48]Assets[/font_size][/b]
 Source: [url=https://kenney.nl/]Kenney[/url]  
 
-[font_size=32]Font[/font_size]
+[b][font_size=32]Font[/font_size][/b]
 Monogram made by Vinícius Menézio (@vmenezio).
 Source: [url=https://datagoblin.itch.io/monogram]itch[/url]
 
-[font_size=48]Tools[/font_size]
-[font_size=24]Godot[/font_size]
+[b][font_size=48]Tools[/font_size][/b]
+[b][font_size=24]Game Engine[/font_size][/b]
 [img=200]res:///menu_template/assets/godot_engine_logo/logo_vertical_color_dark.png[/img]  
 
-[font_size=24]Godot Credits Scene[/font_size]
+[b][font_size=24]Game Template[/font_size][/b]
 [img=200]res:///menu_template/assets/plugin_logo/logo.png[/img]  
-Author: [url=https://github.com/Maaack/Godot-Credits-Scene/graphs/contributors]Marek Belski and contributors[/url]  
-Source: [url=https://github.com/Maaack/Godot-Credits-Scene]github: Godot-Credits-Scene[/url]  
+Source: [url=https://github.com/Maaack/Godot-Game-Template]github[/url]
 "
 fit_content = false
 scroll_active = true

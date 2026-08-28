@@ -26,6 +26,8 @@ func _ready() -> void:
 			file_name = dir_access.get_next()
 	else:
 		push_error("An error occurred when trying to access the path.")
+	%TimeSlider.time_run_out.connect(%World.player_killed)
+	%World.player_respawned.connect(%TimeSlider.reset)
 
 
 func _player_died():
@@ -38,3 +40,7 @@ func _player_died():
 			break
 	if has_health == false:
 		%GameOverController.game_over()
+
+
+func _on_world_lillypad_filled() -> void:
+	%Score.increase_score(%TimeSlider.ratio)

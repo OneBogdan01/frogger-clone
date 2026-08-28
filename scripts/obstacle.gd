@@ -2,16 +2,15 @@ class_name Obstacle
 extends Area2D
 
 enum ObstacleType {
-	Water,
-	Car,
-	Snake,
-	Crocodile,
-	EndMap,
+	WATER,
+	CAR,
+	ANIMAL,
+	ENDMAP,
 }
 @export var obstacle_type: ObstacleType
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	for area in get_overlapping_areas():
 		var player = area as PlayerFrog
 		if player == null:

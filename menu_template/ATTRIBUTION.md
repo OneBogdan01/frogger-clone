@@ -1,4 +1,5 @@
-## Made by Bogdan Mocanu.
+# Attribution
+## Made by Bogdan Mocanu for the [20 games challange](https://20_games_challenge.gitlab.io/challenge/)
 
 
 ## Assets
