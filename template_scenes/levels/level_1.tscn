@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://crtpvf5j5nnm7" path="res://scenes/turtle.tscn" id="8_702sd"]
 [ext_resource type="PackedScene" uid="uid://b2borrhg4jpdi" path="res://scenes/car.tscn" id="9_cfxgb"]
 [ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="10_a7mxy"]
+[ext_resource type="PackedScene" uid="uid://c8xukrqjc5btn" path="res://scenes/enviroment.tscn" id="10_wbfwu"]
 [ext_resource type="PackedScene" uid="uid://bwdq42y7g7xjm" path="res://scenes/lillypad.tscn" id="11_46oge"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="12_mlphh"]
 [ext_resource type="Script" uid="uid://dlh72i1lfkfg2" path="res://scripts/player_spawn_point.gd" id="13_ehljc"]
@@ -1305,13 +1306,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 80.0
 offset_top = 3.0
-offset_right = -80.0
+offset_right = -87.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="HUD/AspectRatioContainer" unique_id=840125231]
-propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1334,6 +1334,8 @@ unique_name_in_owner = true
 y_sort_enabled = true
 script = ExtResource("6_2kx1j")
 lillypads_parent = NodePath("Lillypads")
+
+[node name="Enviroment" parent="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World" unique_id=698534114 instance=ExtResource("10_wbfwu")]
 
 [node name="Moveables" type="Node2D" parent="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World" unique_id=2033743252]
 y_sort_enabled = true
@@ -1647,6 +1649,7 @@ offset_bottom = 83.0
 [connection signal="area_entered" from="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World/StaticColliders/Water" to="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World/StaticColliders/Water" method="_on_area_entered"]
 [connection signal="pressed" from="HUD/Button2" to="." method="load_next_level"]
 
+[editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World/Enviroment"]
 [editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World/Moveables/Logs/Log8"]
 [editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World/Moveables/Turtles/Turtle4"]
 [editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World/Moveables/Turtles/Turtle5"]

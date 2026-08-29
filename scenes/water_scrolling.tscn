@@ -1,9 +1,21 @@
 [gd_scene format=3 uid="uid://dltxdn73f1yom"]
 
-[ext_resource type="Texture2D" uid="uid://ghcton18i53f" path="res://assets/textures/Water/water_waves.png" id="1_issxl"]
+[ext_resource type="Material" uid="uid://cgcup1yqt80l8" path="res://materials/water.tres" id="1_turfu"]
+[ext_resource type="Texture2D" uid="uid://jiuujc2kt1ot" path="res://assets/textures/Water/water_foamy_01.jpg" id="2_turfu"]
 
 [node name="WaterWaves" type="TextureRect" unique_id=1192919985]
-offset_right = 436.0
-offset_bottom = 309.0
-texture = ExtResource("1_issxl")
+z_index = -3
+material = ExtResource("1_turfu")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 32.0
+offset_right = 240.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_turfu")
+expand_mode = 1
 stretch_mode = 1

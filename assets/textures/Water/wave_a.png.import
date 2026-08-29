@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbkr54rsj30p"
-path="res://.godot/imported/road_01.png-da3fbe63ee0d52c21d9d97150aad39af.ctex"
+uid="uid://dx2ipv018jnn7"
+path="res://.godot/imported/wave_a.png-9cb726618ec062f30f0550ed0e5ab0e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/Road/Materials/road_01.png"
-dest_files=["res://.godot/imported/road_01.png-da3fbe63ee0d52c21d9d97150aad39af.ctex"]
+source_file="res://assets/textures/Water/wave_a.png"
+dest_files=["res://.godot/imported/wave_a.png-9cb726618ec062f30f0550ed0e5ab0e0.ctex"]
 
 [params]
 
@@ -21,9 +21,9 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=64
+process/size_limit=0
 detect_3d/compress_to=1

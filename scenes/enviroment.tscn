@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c8xukrqjc5btn"]
+
+[ext_resource type="PackedScene" uid="uid://dltxdn73f1yom" path="res://scenes/water_scrolling.tscn" id="1_br286"]
+[ext_resource type="Shader" uid="uid://cephdj7yalu7h" path="res://shaders/tiling_texture.gdshader" id="2_g32t6"]
+[ext_resource type="Texture2D" uid="uid://bbkr54rsj30p" path="res://assets/textures/Road/Materials/road_01.png" id="3_sf6qd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qh1bb"]
+shader = ExtResource("2_g32t6")
+shader_parameter/uv_scale = 16.0
+shader_parameter/rotation_degrees = 0.0
+
+[node name="Enviroment" type="Node2D" unique_id=698534114]
+
+[node name="WaterWaves" parent="." unique_id=1192919985 instance=ExtResource("1_br286")]
+z_index = -2
+
+[node name="Road01" type="TextureRect" parent="." unique_id=967489526]
+material = SubResource("ShaderMaterial_qh1bb")
+offset_left = 240.0
+offset_top = 208.0
+offset_right = 480.0
+offset_bottom = 288.0
+rotation = 3.1415927
+texture = ExtResource("3_sf6qd")
+expand_mode = 1
+stretch_mode = 1

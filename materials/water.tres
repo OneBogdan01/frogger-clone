@@ -1,4 +1,10 @@
-shader_type canvas_item;
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cgcup1yqt80l8"]
+
+[ext_resource type="Texture2D" uid="uid://dx2ipv018jnn7" path="res://assets/textures/Water/wave_a.png" id="1_4lgl7"]
+[ext_resource type="Texture2D" uid="uid://3vs16y72ggij" path="res://assets/textures/Water/wave_b.png" id="2_6tan1"]
+
+[sub_resource type="Shader" id="Shader_turfu"]
+code = "shader_type canvas_item;
 
 uniform sampler2D normal_a : hint_normal, repeat_enable, filter_linear_mipmap;
 uniform sampler2D normal_b : hint_normal, repeat_enable, filter_linear_mipmap;
@@ -33,4 +39,18 @@ void fragment() {
     float spec = pow(clamp(dot(n, H), 0.0, 1.0), specular_power) * specular_strength;
 
     COLOR = vec4(water_color.rgb * (0.6 + 0.4 * diff) + vec3(spec), water_color.a);
-}
+}"
+
+[resource]
+shader = SubResource("Shader_turfu")
+shader_parameter/normal_a = ExtResource("1_4lgl7")
+shader_parameter/normal_b = ExtResource("2_6tan1")
+shader_parameter/tiling_a = Vector2(4, 4)
+shader_parameter/tiling_b = Vector2(6, 6)
+shader_parameter/scroll_a = Vector2(0.1, 0.02)
+shader_parameter/scroll_b = Vector2(-0.1, 0.065)
+shader_parameter/water_color = Color(0, 0.5029093, 0.90508115, 1)
+shader_parameter/light_dir = Vector3(0, -1.155, 0.7)
+shader_parameter/normal_strength = 1.0
+shader_parameter/specular_power = 31.62
+shader_parameter/specular_strength = 0.62
