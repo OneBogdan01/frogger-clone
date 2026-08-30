@@ -3,6 +3,8 @@ extends Area2D
 
 @export var tile_size := 16.0
 @export var hop_time := .1
+@export var water_dead_effect: PackedScene
+
 @onready var ray_direction: RayCast2D = %RayDirection
 @export_flags_2d_physics var platform_layers
 const MOVES := {
@@ -26,11 +28,18 @@ func is_platform(area: Area2D):
 	return (area.collision_layer & platform_layers) != 0
 
 
+func spawn_effect(scene: PackedScene):
+	var instance = scene.instantiate()
+	instance.global_position = global_position
+	get_parent().add_child(instance)
+
+
 func destroy_player(obstacle_type: Obstacle.ObstacleType):
 	match obstacle_type:
 		Obstacle.ObstacleType.WATER:
 			if get_overlapping_areas().any(is_platform):
 				return
+			spawn_effect(water_dead_effect)
 		Obstacle.ObstacleType.ANIMAL:
 			print("player eaten by an animal")
 
@@ -56,11 +65,15 @@ func move_frog(direction: Vector2i):
 	ray_direction.target_position = direction * tile_size
 	ray_direction.force_raycast_update()
 	if ray_direction.is_colliding() == false:
-		_tween = create_tween()
+		%Sprite2D.look_at(to_global(ray_direction.target_position.rotated(PI / 2)))
+
+		_tween = create_tween().set_parallel(true)
 		_tween.set_ease(Tween.EASE_IN_OUT)
 		_tween.set_trans(Tween.TRANS_SINE)
+		_tween.tween_property(%Sprite2D, "frame", %Sprite2D.hframes - 1, hop_time).set_trans(Tween.TRANS_BOUNCE)
 		_tween.tween_property(self, "position", position + direction * tile_size, hop_time)
 		await _tween.finished
+		%Sprite2D.frame = 0
 
 
 func move_on_platform(increment: Vector2):

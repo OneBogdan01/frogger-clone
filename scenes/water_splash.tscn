@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cp8ifil1at4xf"]
+
+[ext_resource type="Texture2D" uid="uid://cjlaavc5ra4rg" path="res://assets/Tiny Swords (Free Pack) (1)/Particle FX/Water Splash.png" id="1_l75kt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckhv4"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p2cg"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn642"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkoxv"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8jbt"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k3gc"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twud3"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mrn6"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0abyx"]
+atlas = ExtResource("1_l75kt")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckhv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p2cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nn642")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkoxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8jbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k3gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twud3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mrn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0abyx")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="WaterEffect" type="Node2D" unique_id=800149398]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1891325826]
+position = Vector2(0, -8)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_bhunq")
+autoplay = "default"
+frame = 9
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="Sprite" to="." method="queue_free"]

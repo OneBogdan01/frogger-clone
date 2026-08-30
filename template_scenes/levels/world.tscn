@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c8xukrqjc5btn" path="res://scenes/enviroment.tscn" id="2_33u61"]
 [ext_resource type="PackedScene" uid="uid://bwdq42y7g7xjm" path="res://scenes/lillypad.tscn" id="2_vmc2x"]
 [ext_resource type="PackedScene" uid="uid://bf6la3m7uvyre" path="res://scenes/player_frog.tscn" id="3_5txwm"]
-[ext_resource type="Shader" uid="uid://cephdj7yalu7h" path="res://shaders/tiling_texture.gdshader" id="3_6gc14"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="4_4oeiy"]
 [ext_resource type="PackedScene" uid="uid://b2borrhg4jpdi" path="res://scenes/car.tscn" id="4_pnjqe"]
 [ext_resource type="PackedScene" uid="uid://32ryj7i8eemk" path="res://scenes/log.tscn" id="5_f1hsl"]
@@ -15,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://d4klvl0ypq7bm" path="res://assets/textures/Ground/Materials/sand_03.png" id="9_nnv67"]
 [ext_resource type="Texture2D" uid="uid://bdn61ntuysx0v" path="res://assets/textures/Ground/Materials/sand_mossy_01.png" id="10_d2au2"]
 [ext_resource type="Texture2D" uid="uid://brk6t1uh5kdrw" path="res://assets/textures/Ground/Materials/sand_01.jpg" id="11_33u61"]
-[ext_resource type="Texture2D" uid="uid://4qc8apdllue5" path="res://assets/textures/Ground/Materials/grass_03.png" id="16_nnv67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnjqe"]
 size = Vector2(40, 13)
@@ -1425,21 +1423,6 @@ normal = Vector2(0, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
 size = Vector2(272, 88)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhunq"]
-shader = ExtResource("3_6gc14")
-shader_parameter/uv_scale = 9.0
-shader_parameter/rotation_degrees = -25.325
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5j0f2"]
-shader = ExtResource("3_6gc14")
-shader_parameter/uv_scale = 9.02
-shader_parameter/rotation_degrees = -27.785
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2au2"]
-shader = ExtResource("3_6gc14")
-shader_parameter/uv_scale = 19.095
-shader_parameter/rotation_degrees = 0.0
-
 [node name="World" type="Node2D" unique_id=1838088911 node_paths=PackedStringArray("lillypads_parent")]
 y_sort_enabled = true
 script = ExtResource("1_5txwm")
@@ -1669,6 +1652,7 @@ position = Vector2(-280, 160)
 dir = "Left"
 
 [node name="Tilemaps" type="Node2D" parent="." unique_id=1420541415]
+visible = false
 z_index = -3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tilemaps" unique_id=19416871]
@@ -1739,38 +1723,9 @@ script = ExtResource("1_vmc2x")
 player_scene = ExtResource("3_5txwm")
 parent = NodePath("..")
 
-[node name="Sand01" type="TextureRect" parent="." unique_id=39572754]
-material = SubResource("ShaderMaterial_bhunq")
-offset_top = 112.0
-offset_right = 187.20752
-offset_bottom = 128.0
-scale = Vector2(1.282, 1)
-texture = ExtResource("11_33u61")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="Sand02" type="TextureRect" parent="." unique_id=1826796422]
-material = SubResource("ShaderMaterial_5j0f2")
-offset_top = 208.0
-offset_right = 187.20752
-offset_bottom = 224.0
-scale = Vector2(1.282, 1)
-texture = ExtResource("8_5j0f2")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="Sand03" type="TextureRect" parent="." unique_id=1485967643]
-material = SubResource("ShaderMaterial_d2au2")
-offset_top = 224.0
-offset_right = 187.20752
-offset_bottom = 240.0
-scale = Vector2(1.282, 1)
-texture = ExtResource("16_nnv67")
-expand_mode = 1
-stretch_mode = 1
-
 [connection signal="area_entered" from="StaticColliders/Water" to="StaticColliders/Water" method="_on_area_entered"]
 
+[editable path="Enviroment"]
 [editable path="Moveables/Turtles/Turtle4"]
 [editable path="Moveables/Turtles/Turtle5"]
 [editable path="Moveables/Turtles/Turtle6"]
