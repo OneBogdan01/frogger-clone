@@ -31,6 +31,11 @@ shader = ExtResource("2_g32t6")
 shader_parameter/uv_scale = 19.095
 shader_parameter/rotation_degrees = 0.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eyxog"]
+shader = ExtResource("2_g32t6")
+shader_parameter/uv_scale = 19.095
+shader_parameter/rotation_degrees = 0.0
+
 [node name="Enviroment" type="Node2D" unique_id=698534114]
 z_index = -2
 
@@ -83,6 +88,71 @@ stretch_mode = 1
 material = SubResource("ShaderMaterial_i6lat")
 offset_right = 187.20752
 offset_bottom = 16.0
+scale = Vector2(1.282, 1)
+texture = ExtResource("6_1qsqk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sand17" type="TextureRect" parent="." unique_id=1945157767]
+material = SubResource("ShaderMaterial_eyxog")
+offset_top = 16.0
+offset_right = 12.4805
+offset_bottom = 32.0
+scale = Vector2(1.282, 1)
+texture = ExtResource("6_1qsqk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sand18" type="TextureRect" parent="." unique_id=2041542919]
+material = SubResource("ShaderMaterial_eyxog")
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 56.961
+offset_bottom = 32.0
+scale = Vector2(1.282, 1)
+texture = ExtResource("6_1qsqk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sand19" type="TextureRect" parent="." unique_id=1022234932]
+material = SubResource("ShaderMaterial_eyxog")
+offset_left = 80.0
+offset_top = 16.0
+offset_right = 104.961
+offset_bottom = 32.0
+scale = Vector2(1.282, 1)
+texture = ExtResource("6_1qsqk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sand20" type="TextureRect" parent="." unique_id=426803533]
+material = SubResource("ShaderMaterial_eyxog")
+offset_left = 128.0
+offset_top = 16.0
+offset_right = 152.961
+offset_bottom = 32.0
+scale = Vector2(1.282, 1)
+texture = ExtResource("6_1qsqk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sand21" type="TextureRect" parent="." unique_id=901926988]
+material = SubResource("ShaderMaterial_eyxog")
+offset_left = 176.0
+offset_top = 16.0
+offset_right = 200.961
+offset_bottom = 32.0
+scale = Vector2(1.282, 1)
+texture = ExtResource("6_1qsqk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sand22" type="TextureRect" parent="." unique_id=1455404258]
+material = SubResource("ShaderMaterial_eyxog")
+offset_left = 224.0
+offset_top = 16.0
+offset_right = 236.48053
+offset_bottom = 32.0
 scale = Vector2(1.282, 1)
 texture = ExtResource("6_1qsqk")
 expand_mode = 1

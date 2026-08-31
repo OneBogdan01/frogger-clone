@@ -58,6 +58,10 @@ func _process(_delta: float) -> void:
 			return
 
 
+func change_shadow():
+	%Shadow.frame = %Sprite2D.frame
+
+
 func move_frog(direction: Vector2i):
 	if _tween and _tween.is_running():
 		return
@@ -67,10 +71,10 @@ func move_frog(direction: Vector2i):
 	if ray_direction.is_colliding() == false:
 		%Sprite2D.look_at(to_global(ray_direction.target_position.rotated(PI / 2)))
 
-		_tween = create_tween().set_parallel(true)
+		_tween = create_tween()
 		_tween.set_ease(Tween.EASE_IN_OUT)
 		_tween.set_trans(Tween.TRANS_SINE)
-		_tween.tween_property(%Sprite2D, "frame", %Sprite2D.hframes - 1, hop_time).set_trans(Tween.TRANS_BOUNCE)
+		_tween.tween_property(%Sprite2D, "frame", %Sprite2D.hframes - 1, hop_time)
 		_tween.tween_property(self, "position", position + direction * tile_size, hop_time)
 		await _tween.finished
 		%Sprite2D.frame = 0

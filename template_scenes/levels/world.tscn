@@ -1430,6 +1430,9 @@ lillypads_parent = NodePath("Lillypads")
 
 [node name="Enviroment" parent="." unique_id=698534114 instance=ExtResource("2_33u61")]
 
+[node name="Sand15" parent="Enviroment" index="10" unique_id=626850879]
+offset_right = 200.961
+
 [node name="Moveables" type="Node2D" parent="." unique_id=2033743252]
 y_sort_enabled = true
 position = Vector2(-64, 0)
