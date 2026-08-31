@@ -429,7 +429,7 @@
 
 [node name="InputIconMapper" unique_id=2136107125 instance=ExtResource("1_1ovyb")]
 
-prioritized_strings = Array[String](["color"])
+prioritized_strings = Array[String](["outline", "color"])
 replace_strings = {
 "Capslock": "Caps Lock",
 "Generic Stick": "Generic Left Stick",
@@ -443,7 +443,6 @@ replace_strings = {
 "Trigger R 1": "Right Shoulder",
 "Trigger R 2": "Right Trigger"
 }
-filtered_strings = Array[String](["keyboard", "color", "button", "arrow"])
+filtered_strings = Array[String](["keyboard", "color", "button", "arrow", "outline"])
 directories = Array[String](["res://menu_template/assets/kenney_input-prompts/Keyboard & Mouse/Vector", "res://menu_template/assets/kenney_input-prompts/Generic/Vector", "res://menu_template/assets/kenney_input-prompts/Xbox Series/Vector", "res://menu_template/assets/kenney_input-prompts/PlayStation Series/Vector", "res://menu_template/assets/kenney_input-prompts/Nintendo Switch/Vector", "res://menu_template/assets/kenney_input-prompts/Steam Deck/Vector"])
 ends_with = ".svg"
-not_ends_with = "outline.svg"

@@ -26,13 +26,13 @@ func _ready() -> void:
 			file_name = dir_access.get_next()
 	else:
 		push_error("An error occurred when trying to access the path.")
-	%TimeSlider.time_run_out.connect(%World.player_killed)
-	%World.player_respawned.connect(%TimeSlider.reset)
+	%HUD.time_slider.time_run_out.connect(%World.player_killed)
+	%World.player_respawned.connect(%HUD.time_slider.reset)
 
 
 func _player_died():
 	var has_health = false
-	for node in %HealthContainer.get_children():
+	for node in %HUD.health_container.get_children():
 		var tex_rect = node as TextureRect
 		if tex_rect and tex_rect.visible:
 			tex_rect.hide()
@@ -43,4 +43,4 @@ func _player_died():
 
 
 func _on_world_lillypad_filled() -> void:
-	%Score.increase_score(%TimeSlider.ratio)
+	%HUD.score.increase_score(%HUD.time_slider)

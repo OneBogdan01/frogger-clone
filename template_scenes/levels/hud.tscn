@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dysmchbq8dt6t"]
 
+[ext_resource type="Script" uid="uid://b7jfhwpur450o" path="res://template_scenes/levels/hud.gd" id="1_r84bx"]
 [ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="1_t4xfc"]
 [ext_resource type="Script" uid="uid://cv2cpn86jb0rf" path="res://scripts/score.gd" id="2_d5old"]
 [ext_resource type="Script" uid="uid://c5loe4nfyf85v" path="res://scripts/time_counter.gd" id="3_o2x0n"]
+[ext_resource type="Script" uid="uid://cvt6n2mqsu85k" path="res://template_scenes/levels/skip_game.gd" id="5_74hey"]
 
 [sub_resource type="DPITexture" id="DPITexture_3df6c"]
 
@@ -22,9 +24,27 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="HUD" type="CanvasLayer" unique_id=1012343135]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbfwu"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.973535, 0.973535, 0.973535, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[node name="HealthContainer" type="PanelContainer" parent="." unique_id=1554584428]
+[node name="HUD" type="CanvasLayer" unique_id=225231588]
+script = ExtResource("1_r84bx")
+
+[node name="HealthContainer" type="PanelContainer" parent="." unique_id=290818408]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -37,36 +57,36 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
 
-[node name="HealthContainer" type="FlowContainer" parent="HealthContainer" unique_id=991455620]
+[node name="HealthContainer" type="FlowContainer" parent="HealthContainer" unique_id=69171521]
 unique_name_in_owner = true
 propagate_maximum_size = false
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=1611612797]
+[node name="TextureRect" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=567966292]
 layout_mode = 2
 texture = ExtResource("1_t4xfc")
 stretch_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=500985562]
+[node name="TextureRect2" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=1848099308]
 layout_mode = 2
 texture = ExtResource("1_t4xfc")
 stretch_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=1234774400]
+[node name="TextureRect3" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=346344499]
 layout_mode = 2
 texture = ExtResource("1_t4xfc")
 stretch_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HealthContainer" unique_id=1630272644]
+[node name="MarginContainer" type="MarginContainer" parent="HealthContainer" unique_id=31682192]
 layout_mode = 2
 theme_override_constants/margin_top = 22
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HealthContainer/MarginContainer" unique_id=266347677]
+[node name="VBoxContainer" type="VBoxContainer" parent="HealthContainer/MarginContainer" unique_id=943538373]
 layout_mode = 2
 alignment = 1
 
-[node name="ScoreText" type="Label" parent="HealthContainer/MarginContainer/VBoxContainer" unique_id=464542630]
+[node name="ScoreText" type="Label" parent="HealthContainer/MarginContainer/VBoxContainer" unique_id=640447218]
 propagate_maximum_size = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -74,14 +94,14 @@ size_flags_stretch_ratio = 16.26
 text = "Score"
 horizontal_alignment = 1
 
-[node name="Score" type="Label" parent="HealthContainer/MarginContainer/VBoxContainer" unique_id=1242817390]
+[node name="Score" type="Label" parent="HealthContainer/MarginContainer/VBoxContainer" unique_id=405160736]
 unique_name_in_owner = true
 layout_mode = 2
 text = "10000"
 horizontal_alignment = 1
 script = ExtResource("2_d5old")
 
-[node name="TimeContainer" type="PanelContainer" parent="." unique_id=378580702]
+[node name="TimeContainer" type="PanelContainer" parent="." unique_id=865070359]
 anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 0.53300005
@@ -97,16 +117,16 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
 
-[node name="BoxContainer" type="HBoxContainer" parent="TimeContainer" unique_id=1187216105]
+[node name="BoxContainer" type="HBoxContainer" parent="TimeContainer" unique_id=1128622109]
 layout_mode = 2
 
-[node name="TimeText" type="Label" parent="TimeContainer/BoxContainer" unique_id=1422670576]
+[node name="TimeText" type="Label" parent="TimeContainer/BoxContainer" unique_id=1926436090]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
 text = "Time"
 
-[node name="TimeSlider" type="VSlider" parent="TimeContainer/BoxContainer" unique_id=2017189043]
+[node name="TimeSlider" type="VSlider" parent="TimeContainer/BoxContainer" unique_id=1601595719]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_icons/grabber_disabled = SubResource("DPITexture_3df6c")
@@ -116,12 +136,12 @@ editable = false
 scrollable = false
 script = ExtResource("3_o2x0n")
 
-[node name="Button" type="Button" parent="." unique_id=1548926755]
+[node name="Button" type="Button" parent="." unique_id=712338663]
 visible = false
 offset_right = 80.0
 offset_bottom = 64.0
 
-[node name="Panel" type="Panel" parent="." unique_id=291318227]
+[node name="WorldBG" type="Panel" parent="." unique_id=1524000332]
 z_index = -3
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,32 +150,46 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0cac6")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=421077370]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=918440411]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 80.0
-offset_top = 3.0
 offset_right = -80.0
-offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="AspectRatioContainer" unique_id=840125231]
-propagate_maximum_size = false
+[node name="SubViewportContainer" type="SubViewportContainer" parent="AspectRatioContainer" unique_id=87464894]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer" unique_id=1932303956]
+[node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer" unique_id=1151473828]
 disable_3d = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 scaling_3d_mode = 5
 canvas_item_default_texture_filter = 0
 physics_object_picking = true
-size = Vector2i(473, 473)
+size = Vector2i(480, 480)
 size_2d_override = Vector2i(240, 240)
 size_2d_override_stretch = true
 render_target_update_mode = 4
+
+[node name="WorldBorder" type="Panel" parent="AspectRatioContainer" unique_id=545028812]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbfwu")
+
+[node name="Button2" type="Button" parent="." unique_id=1306334456]
+offset_right = 75.0
+offset_bottom = 83.0
+script = ExtResource("5_74hey")
+
+[node name="GameBorder" type="Panel" parent="." unique_id=1855584129]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbfwu")

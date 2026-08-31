@@ -20,8 +20,17 @@ signal player_killed
 var original_parent: Node2D
 
 
+func animate_intro(node: Node2D):
+	node.position += Vector2.DOWN * tile_size
+	animate_movement(node, Vector2.UP, node.position)
+	animate_stretch_squash(node)
+
+
 func _ready() -> void:
 	original_parent = get_parent()
+
+	animate_intro(%Sprite2D)
+	animate_intro(%Shadow)
 
 
 func is_platform(area: Area2D):
@@ -62,22 +71,56 @@ func change_shadow():
 	%Shadow.frame = %Sprite2D.frame
 
 
-func move_frog(direction: Vector2i):
+@export var anticipate_time := 0.06
+@export var land_time := 0.07
+
+const SQUASH := Vector2(1.30, 0.70) # crouch
+const STRETCH := Vector2(0.75, 1.35) # airborne
+const LANDING := Vector2(1.25, 0.75) # impact
+
+
+func move_frog(direction: Vector2i) -> void:
 	if _tween and _tween.is_running():
 		return
 
 	ray_direction.target_position = direction * tile_size
 	ray_direction.force_raycast_update()
-	if ray_direction.is_colliding() == false:
-		%Sprite2D.look_at(to_global(ray_direction.target_position.rotated(PI / 2)))
+	if ray_direction.is_colliding():
+		return
 
-		_tween = create_tween()
-		_tween.set_ease(Tween.EASE_IN_OUT)
-		_tween.set_trans(Tween.TRANS_SINE)
-		_tween.tween_property(%Sprite2D, "frame", %Sprite2D.hframes - 1, hop_time)
-		_tween.tween_property(self, "position", position + direction * tile_size, hop_time)
-		await _tween.finished
-		%Sprite2D.frame = 0
+	var spr: Sprite2D = %Sprite2D
+	spr.look_at(to_global(ray_direction.target_position.rotated(PI / 2)))
+	spr.scale = Vector2.ONE
+	animate_movement(self, direction, position)
+	animate_stretch_squash(spr)
+
+
+func animate_movement(node: Node2D, direction: Vector2, old_position: Vector2):
+	_tween = create_tween()
+	_tween.tween_interval(anticipate_time)
+	_tween.tween_property(
+		node,
+		"position",
+		old_position + Vector2(direction) * tile_size,
+		hop_time,
+	) \
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func animate_stretch_squash(spr: Sprite2D):
+	var deform := create_tween()
+	deform.tween_property(spr, "scale", SQUASH, anticipate_time) \
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	deform.tween_callback(func(): spr.frame = spr.hframes - 1)
+	deform.tween_property(spr, "scale", STRETCH, hop_time * 0.35) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	deform.tween_property(spr, "scale", Vector2(1.05, 0.95), hop_time * 0.65) \
+			.set_trans(Tween.TRANS_SINE)
+	deform.tween_callback(func(): spr.frame = 0)
+	deform.tween_property(spr, "scale", LANDING, land_time) \
+			.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	deform.tween_property(spr, "scale", Vector2.ONE, land_time * 2.0) \
+			.set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
 
 func move_on_platform(increment: Vector2):

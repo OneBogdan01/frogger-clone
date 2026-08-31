@@ -23,17 +23,17 @@ shader_parameter/rotation_degrees = -27.785
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vm31j"]
 shader = ExtResource("2_g32t6")
-shader_parameter/uv_scale = 19.095
+shader_parameter/uv_scale = 25.0
 shader_parameter/rotation_degrees = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i6lat"]
 shader = ExtResource("2_g32t6")
-shader_parameter/uv_scale = 19.095
+shader_parameter/uv_scale = 35.0
 shader_parameter/rotation_degrees = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eyxog"]
 shader = ExtResource("2_g32t6")
-shader_parameter/uv_scale = 19.095
+shader_parameter/uv_scale = 35.895
 shader_parameter/rotation_degrees = 0.0
 
 [node name="Enviroment" type="Node2D" unique_id=698534114]
@@ -68,15 +68,16 @@ stretch_mode = 1
 material = SubResource("ShaderMaterial_8toyb")
 offset_top = 208.0
 offset_right = 187.20752
-offset_bottom = 224.0
+offset_bottom = 225.0
 scale = Vector2(1.282, 1)
 texture = ExtResource("4_i6lat")
 expand_mode = 1
 stretch_mode = 1
 
 [node name="Sand03" type="TextureRect" parent="." unique_id=1298126948]
+z_index = 6
 material = SubResource("ShaderMaterial_vm31j")
-offset_top = 224.0
+offset_top = 225.0
 offset_right = 187.20752
 offset_bottom = 240.0
 scale = Vector2(1.282, 1)

@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://bajj7fl71v51a"]
+
+[ext_resource type="PackedScene" uid="uid://32ryj7i8eemk" path="res://scenes/log.tscn" id="1_4lsxt"]
+[ext_resource type="PackedScene" uid="uid://crtpvf5j5nnm7" path="res://scenes/turtle.tscn" id="2_u7ngg"]
+[ext_resource type="PackedScene" uid="uid://b2borrhg4jpdi" path="res://scenes/car.tscn" id="3_fwmf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnjqe"]
+size = Vector2(40, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu41q"]
+size = Vector2(24, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c77qx"]
+size = Vector2(24, 13)
+
+[node name="Moveables" type="Node2D" unique_id=1790982113]
+y_sort_enabled = true
+
+[node name="Logs" type="Node2D" parent="." unique_id=1554683784]
+
+[node name="Log" parent="Logs" unique_id=699619881 instance=ExtResource("1_4lsxt")]
+position = Vector2(160, 104)
+scale = Vector2(1.9200001, 1)
+speed = 30.0
+
+[node name="Log2" parent="Logs" unique_id=609950980 instance=ExtResource("1_4lsxt")]
+position = Vector2(96, 104)
+scale = Vector2(1.54, 1)
+speed = 30.0
+
+[node name="Log5" parent="Logs" unique_id=785265490 instance=ExtResource("1_4lsxt")]
+position = Vector2(160, 72)
+speed = 37.0
+
+[node name="Log7" parent="Logs" unique_id=1052510224 instance=ExtResource("1_4lsxt")]
+position = Vector2(232, 72)
+scale = Vector2(3.2, 1)
+speed = 37.0
+
+[node name="Log6" parent="Logs" unique_id=1343516102 instance=ExtResource("1_4lsxt")]
+position = Vector2(48, 72)
+scale = Vector2(2.12, 1)
+speed = 37.0
+
+[node name="Log8" parent="Logs" unique_id=1028034227 instance=ExtResource("1_4lsxt")]
+position = Vector2(104, 72)
+scale = Vector2(2.12, 1)
+speed = 37.0
+
+[node name="Log9" parent="Logs" unique_id=70167375 instance=ExtResource("1_4lsxt")]
+position = Vector2(305, 72)
+scale = Vector2(2.12, 1)
+speed = 37.0
+
+[node name="Log4" parent="Logs" unique_id=454239776 instance=ExtResource("1_4lsxt")]
+position = Vector2(27, 104)
+scale = Vector2(2.04, 1)
+speed = 20.0
+
+[node name="Log3" parent="Logs" unique_id=1027886224 instance=ExtResource("1_4lsxt")]
+position = Vector2(208, 104)
+scale = Vector2(1.440002, 1)
+speed = 30.0
+
+[node name="ToLeft" type="Node2D" parent="Logs" unique_id=202837071]
+position = Vector2(368, 0)
+
+[node name="Log8" parent="Logs/ToLeft" unique_id=2147408000 instance=ExtResource("1_4lsxt")]
+position = Vector2(-194.00002, 40.000004)
+scale = Vector2(3.2799997, 1)
+speed = 30.0
+dir = "Left"
+
+[node name="Log9" parent="Logs/ToLeft" unique_id=2019828968 instance=ExtResource("1_4lsxt")]
+position = Vector2(-80, 40.000004)
+scale = Vector2(1.9599996, 1)
+speed = 30.0
+dir = "Left"
+
+[node name="Log10" parent="Logs/ToLeft" unique_id=1761078542 instance=ExtResource("1_4lsxt")]
+position = Vector2(-8, 40)
+scale = Vector2(1.9599996, 1)
+speed = 30.0
+dir = "Left"
+
+[node name="Turtles" type="Node2D" parent="." unique_id=1901832235]
+
+[node name="Turtle4" parent="Turtles" unique_id=681798748 instance=ExtResource("2_u7ngg")]
+position = Vector2(88, 56)
+speed = 45.0
+
+[node name="CollisionShape2D" parent="Turtles/Turtle4" index="0" unique_id=1397262206]
+shape = SubResource("RectangleShape2D_pnjqe")
+
+[node name="Control" parent="Turtles/Turtle4" index="1" unique_id=1757985487]
+offset_left = -24.0
+offset_right = 24.0
+under_water = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle" parent="Turtles/Turtle4/Control" index="0" unique_id=207780019]
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle5" parent="Turtles" unique_id=1199740097 instance=ExtResource("2_u7ngg")]
+position = Vector2(253, 56)
+speed = 45.0
+
+[node name="CollisionShape2D" parent="Turtles/Turtle5" index="0" unique_id=1397262206]
+shape = SubResource("RectangleShape2D_nu41q")
+
+[node name="Turtle" parent="Turtles/Turtle5/Control" parent_id_path=PackedInt32Array(1199740097, 1757985487) index="0" unique_id=207780019]
+offset_left = 16.0
+offset_right = -16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle6" parent="Turtles" unique_id=1228967920 instance=ExtResource("2_u7ngg")]
+position = Vector2(192, 56)
+speed = 45.0
+
+[node name="CollisionShape2D" parent="Turtles/Turtle6" index="0" unique_id=1397262206]
+shape = SubResource("RectangleShape2D_c77qx")
+
+[node name="Control" parent="Turtles/Turtle6" index="1" unique_id=1757985487]
+offset_left = -16.0
+offset_right = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle" parent="Turtles/Turtle6/Control" index="0" unique_id=207780019]
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle7" parent="Turtles" unique_id=306047935 instance=ExtResource("2_u7ngg")]
+position = Vector2(144, 56)
+speed = 45.0
+
+[node name="CollisionShape2D" parent="Turtles/Turtle7" index="0" unique_id=1397262206]
+shape = SubResource("RectangleShape2D_c77qx")
+
+[node name="Control" parent="Turtles/Turtle7" index="1" unique_id=1757985487]
+offset_left = -16.0
+offset_right = 16.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Turtle" parent="Turtles/Turtle7/Control" index="0" unique_id=207780019]
+metadata/_edit_use_anchors_ = true
+
+[node name="ToLeft" type="Node2D" parent="Turtles" unique_id=611343994]
+position = Vector2(368, 0)
+
+[node name="Turtle" parent="Turtles/ToLeft" unique_id=792186950 instance=ExtResource("2_u7ngg")]
+position = Vector2(-272, 88)
+dir = "Left"
+
+[node name="Control" parent="Turtles/ToLeft/Turtle" index="1" unique_id=1757985487]
+under_water = true
+
+[node name="Turtle3" parent="Turtles/ToLeft" unique_id=85461735 instance=ExtResource("2_u7ngg")]
+position = Vector2(-72, 88)
+dir = "Left"
+
+[node name="Turtle2" parent="Turtles/ToLeft" unique_id=233018420 instance=ExtResource("2_u7ngg")]
+position = Vector2(-144, 88)
+dir = "Left"
+
+[node name="Cars" type="Node2D" parent="." unique_id=1334534539]
+y_sort_enabled = true
+
+[node name="Moveable5" parent="Cars" unique_id=2026401667 instance=ExtResource("3_fwmf3")]
+position = Vector2(72, 176)
+scale = Vector2(-1, 1)
+speed = 25.0
+
+[node name="Moveable6" parent="Cars" unique_id=128463751 instance=ExtResource("3_fwmf3")]
+position = Vector2(160, 176)
+scale = Vector2(-1, 1)
+speed = 25.0
+
+[node name="Moveable13" parent="Cars" unique_id=1720002938 instance=ExtResource("3_fwmf3")]
+position = Vector2(120, 144)
+scale = Vector2(-0.56, 1)
+speed = 40.0
+
+[node name="Moveable14" parent="Cars" unique_id=29697154 instance=ExtResource("3_fwmf3")]
+position = Vector2(168, 144)
+scale = Vector2(-1, 1)
+speed = 40.0
+
+[node name="Moveable15" parent="Cars" unique_id=458381202 instance=ExtResource("3_fwmf3")]
+position = Vector2(248, 144)
+scale = Vector2(-1, 1)
+speed = 40.0
+
+[node name="Moveable16" parent="Cars" unique_id=916403580 instance=ExtResource("3_fwmf3")]
+position = Vector2(248, 144)
+scale = Vector2(-1, 1)
+speed = 40.0
+
+[node name="ToLeft" type="Node2D" parent="Cars" unique_id=2077527489]
+y_sort_enabled = true
+position = Vector2(368, 0)
+
+[node name="Moveable10" parent="Cars/ToLeft" unique_id=2071177862 instance=ExtResource("3_fwmf3")]
+position = Vector2(-280, 128)
+scale = Vector2(3.08, 1)
+speed = 50.0
+distance_to_reset = 370
+dir = "Left"
+
+[node name="Moveable12" parent="Cars/ToLeft" unique_id=78804025 instance=ExtResource("3_fwmf3")]
+position = Vector2(-136, 128)
+scale = Vector2(2.88, 1)
+speed = 50.0
+distance_to_reset = 370
+dir = "Left"
+
+[node name="Moveable2" parent="Cars/ToLeft" unique_id=1581759238 instance=ExtResource("3_fwmf3")]
+position = Vector2(-168, 192)
+speed = 20.0
+dir = "Left"
+
+[node name="Moveable4" parent="Cars/ToLeft" unique_id=569855781 instance=ExtResource("3_fwmf3")]
+position = Vector2(-256, 192)
+speed = 20.0
+dir = "Left"
+
+[node name="Moveable5" parent="Cars/ToLeft" unique_id=632625643 instance=ExtResource("3_fwmf3")]
+position = Vector2(-88, 192)
+speed = 20.0
+dir = "Left"
+
+[node name="Moveable8" parent="Cars/ToLeft" unique_id=1955723885 instance=ExtResource("3_fwmf3")]
+position = Vector2(-200, 160)
+dir = "Left"
+
+[node name="Moveable7" parent="Cars/ToLeft" unique_id=293388741 instance=ExtResource("3_fwmf3")]
+position = Vector2(-280, 160)
+dir = "Left"
+
+[editable path="Turtles/Turtle4"]
+[editable path="Turtles/Turtle5"]
+[editable path="Turtles/Turtle6"]
+[editable path="Turtles/Turtle7"]
+[editable path="Turtles/ToLeft/Turtle"]
