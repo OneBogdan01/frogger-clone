@@ -8,6 +8,7 @@
 size = Vector2(14, 14)
 
 [node name="PlayerFrog" type="Area2D" unique_id=1957262225]
+z_index = 2
 y_sort_enabled = true
 collision_mask = 31
 script = ExtResource("1_ej6fs")
@@ -19,6 +20,19 @@ shape = SubResource("RectangleShape2D_vmc2x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=73784648]
 unique_name_in_owner = true
+texture = ExtResource("3_5am0y")
+hframes = 2
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite2D" unique_id=454005118]
+remote_path = NodePath("../../Shadow")
+update_position = false
+update_scale = false
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1545622612]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 0.50980395)
+z_index = -1
+position = Vector2(1, 1)
 texture = ExtResource("3_5am0y")
 hframes = 2
 

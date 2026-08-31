@@ -16,7 +16,7 @@ config/version="0.0.4"
 config/tags=PackedStringArray("2d")
 run/main_scene="res://menu_template/scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://k2fk2pg12j8n"
 
 [audio]
 
