@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://6vnvul3yejjh"]
+
+[ext_resource type="Texture2D" uid="uid://yekpbgqse2si" path="res://assets/sprites/turtle.png" id="1_uk3rf"]
+[ext_resource type="PackedScene" uid="uid://dwlrcxgeva326" path="res://scenes/water_foam.tscn" id="2_rq7ke"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq7ke"]
+atlas = ExtResource("1_uk3rf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5cad"]
+atlas = ExtResource("1_uk3rf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq7ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5cad")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Turtle" type="AnimatedSprite2D" unique_id=451373067]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_bhunq")
+autoplay = "default"
+frame_progress = 0.79087853
+centered = false
+
+[node name="WaterFoam" parent="." unique_id=471095260 instance=ExtResource("2_rq7ke")]
+visible = false
+position = Vector2(8, 8)
+scale = Vector2(0.15, 0.15)
+frame_progress = 0.2285067

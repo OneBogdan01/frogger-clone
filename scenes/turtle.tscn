@@ -1,43 +1,81 @@
 [gd_scene format=3 uid="uid://crtpvf5j5nnm7"]
 
 [ext_resource type="Script" uid="uid://cgu454fb4qwi" path="res://scripts/moveable.gd" id="1_hbk6c"]
-[ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="2_1l2iw"]
+[ext_resource type="PackedScene" uid="uid://6vnvul3yejjh" path="res://scenes/turtle_sprite.tscn" id="2_1l2iw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spugk"]
 size = Vector2(56, 13)
 
 [sub_resource type="GDScript" id="GDScript_1l2iw"]
 resource_name = "underwater_trigger"
-script/source = "extends Control
+script/source = "@tool
+extends Control
 
 @export var under_water_color: Color
 @export var outside_color: Color = Color.WHITE
 @export var transition_duration := 1.3
+@export var submerge_depth := 8.0
 @export var under_water:=false
+@export var turtle_sprite: PackedScene
 
+@export var speed_range_max:=40
+@export var speed_range_min:=20
+
+@export var _base_y: float
+var _tween: Tween
+var _animation_speed:float
+
+func _fresh_tween() -> Tween:
+	if _tween and _tween.is_valid():
+		_tween.kill()
+	var t := create_tween()
+	t.set_parallel(true)
+	return t
+	
 func _ready() -> void:
+
+	var moveable = get_parent() as Moveable
+	_animation_speed = inverse_lerp(speed_range_min, speed_range_max, moveable.speed) 
+	_on_resized()
+
 	if under_water:
 		%OverWater.start()
-func _enter_water():
-	var tween = create_tween()
-	tween.tween_property(self, \"modulate\", under_water_color, transition_duration)
-	await tween.finished
+func _enter_water() -> void:
+	_tween = _fresh_tween()
+	_tween.tween_property(self, \"modulate\", under_water_color, transition_duration)
+	_tween.tween_property(self, \"position:y\", _base_y + submerge_depth, transition_duration) \\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await _tween.finished
 	%CollisionShape2D.disabled = true
 	%UnderWater.start()
-	
 
 
-func _exit_water():
-	var tween = create_tween()
-	tween.tween_property(self, \"modulate\", outside_color, transition_duration)
-	await tween.finished
+func _exit_water() -> void:
 	%CollisionShape2D.disabled = false
+	_tween = _fresh_tween()
+	_tween.tween_property(self, \"modulate\", outside_color, transition_duration)
+	_tween.tween_property(self, \"position:y\", _base_y, transition_duration) \\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	await _tween.finished
 	%OverWater.start()
-"
+const SPIRTE_SIZE = 16
+func _on_resized() -> void:
+	for child in get_children():
+		child.queue_free()
+	await get_tree().process_frame
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhunq"]
-atlas = ExtResource("2_1l2iw")
-region = Rect2(512, 48, 16, 16)
+	var space_per_turtle := SPIRTE_SIZE
+	var turtles_per_control = (size/space_per_turtle)
+	var offset_x = 0.0
+	for i in int(turtles_per_control.x):
+		var turtle_instance := turtle_sprite.instantiate() as AnimatedSprite2D
+		turtle_instance.position.x = offset_x
+		turtle_instance.name = \"Turtle_%d\" % i
+		turtle_instance.speed_scale = _animation_speed
+		add_child(turtle_instance)
+		offset_x += space_per_turtle
+		
+"
 
 [node name="Turtle" type="Area2D" unique_id=699619881]
 collision_layer = 4
@@ -58,23 +96,16 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -32.0
 offset_top = -8.0
-offset_right = 32.0
+offset_right = 33.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_1l2iw")
-under_water_color = Color(0.57254905, 0.79607844, 1, 1)
+under_water_color = Color(0.57, 0.79216665, 1, 0.5568628)
 transition_duration = 0.7
-
-[node name="Turtle" type="TextureRect" parent="Control" unique_id=207780019]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_bhunq")
-stretch_mode = 1
+submerge_depth = 2.0
+turtle_sprite = ExtResource("2_1l2iw")
+_base_y = null
 
 [node name="OverWater" type="Timer" parent="." unique_id=1770953893]
 unique_name_in_owner = true
@@ -86,5 +117,6 @@ unique_name_in_owner = true
 wait_time = 1.2
 one_shot = true
 
+[connection signal="resized" from="Control" to="Control" method="_on_resized"]
 [connection signal="timeout" from="OverWater" to="Control" method="_enter_water"]
 [connection signal="timeout" from="UnderWater" to="Control" method="_exit_water"]

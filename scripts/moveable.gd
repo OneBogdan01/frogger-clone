@@ -8,10 +8,13 @@ extends Node2D
 var _direction := Vector2.RIGHT
 var _distance_traveled := 0.0
 signal moved(increment: Vector2)
+
 @export_enum("Left", "Right") var dir: String = "Right":
 	set(value):
 		dir = value
+
 		_direction = Vector2.LEFT if value == "Left" else Vector2.RIGHT
+		scale.x = -1.0 if value == "Left" else 1.0
 
 
 func reset_position():

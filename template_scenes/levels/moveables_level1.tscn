@@ -23,6 +23,7 @@ size = Vector2(25, 13)
 y_sort_enabled = true
 
 [node name="Logs" type="Node2D" parent="." unique_id=176237190]
+y_sort_enabled = true
 
 [node name="Log" parent="Logs" unique_id=699619881 instance=ExtResource("1_u6u3o")]
 position = Vector2(160, 104)
@@ -102,6 +103,7 @@ speed = 20.0
 dir = "Left"
 
 [node name="Turtles" type="Node2D" parent="." unique_id=1331203918]
+y_sort_enabled = true
 
 [node name="Turtle4" parent="Turtles" unique_id=1168548347 instance=ExtResource("2_3v7xo")]
 position = Vector2(88, 56)
@@ -113,10 +115,9 @@ shape = SubResource("RectangleShape2D_pnjqe")
 [node name="Control" parent="Turtles/Turtle4" index="1" unique_id=1757985487]
 offset_left = -24.0
 offset_right = 24.0
+under_water_color = Color(0.57, 0.79216665, 1, 0.7490196)
 under_water = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Turtle" parent="Turtles/Turtle4/Control" index="0" unique_id=207780019]
+_base_y = -8.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Turtle5" parent="Turtles" unique_id=783205748 instance=ExtResource("2_3v7xo")]
@@ -126,10 +127,8 @@ speed = 30.0
 [node name="CollisionShape2D" parent="Turtles/Turtle5" index="0" unique_id=1397262206]
 shape = SubResource("RectangleShape2D_nu41q")
 
-[node name="Turtle" parent="Turtles/Turtle5/Control" parent_id_path=PackedInt32Array(783205748, 1757985487) index="0" unique_id=207780019]
-offset_left = 16.0
-offset_right = -16.0
-metadata/_edit_use_anchors_ = true
+[node name="Control" parent="Turtles/Turtle5" index="1" unique_id=1757985487]
+_base_y = -8.0
 
 [node name="Turtle6" parent="Turtles" unique_id=1990014152 instance=ExtResource("2_3v7xo")]
 position = Vector2(192, 56)
@@ -141,9 +140,7 @@ shape = SubResource("RectangleShape2D_c77qx")
 [node name="Control" parent="Turtles/Turtle6" index="1" unique_id=1757985487]
 offset_left = -16.0
 offset_right = 16.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Turtle" parent="Turtles/Turtle6/Control" index="0" unique_id=207780019]
+_base_y = -8.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Turtle7" parent="Turtles" unique_id=127172783 instance=ExtResource("2_3v7xo")]
@@ -156,9 +153,7 @@ shape = SubResource("RectangleShape2D_c77qx")
 [node name="Control" parent="Turtles/Turtle7" index="1" unique_id=1757985487]
 offset_left = -16.0
 offset_right = 16.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Turtle" parent="Turtles/Turtle7/Control" index="0" unique_id=207780019]
+_base_y = -8.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ToLeft" type="Node2D" parent="Turtles" unique_id=1813615127]
@@ -175,6 +170,7 @@ shape = SubResource("RectangleShape2D_wbfwu")
 offset_left = -16.0
 offset_right = 16.0
 under_water = true
+_base_y = -8.0
 
 [node name="Turtle3" parent="Turtles/ToLeft" unique_id=1323368961 instance=ExtResource("2_3v7xo")]
 position = Vector2(-128, 88)
@@ -226,11 +222,6 @@ scale = Vector2(-1, 1)
 speed = 25.0
 
 [node name="Moveable15" parent="Cars" unique_id=60479993 instance=ExtResource("3_gj3i2")]
-position = Vector2(248, 144)
-scale = Vector2(-1, 1)
-speed = 40.0
-
-[node name="Moveable16" parent="Cars" unique_id=1482782308 instance=ExtResource("3_gj3i2")]
 position = Vector2(248, 144)
 scale = Vector2(-1, 1)
 speed = 40.0
