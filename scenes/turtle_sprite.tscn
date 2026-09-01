@@ -25,15 +25,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_rq7ke"]
+resource_name = "under_water_turtle"
+script/source = "extends AnimatedSprite2D
+@onready var water_foam: AnimatedSprite2D = $WaterFoam
+"
+
 [node name="Turtle" type="AnimatedSprite2D" unique_id=451373067]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_bhunq")
 autoplay = "default"
 frame_progress = 0.79087853
 centered = false
+script = SubResource("GDScript_rq7ke")
 
 [node name="WaterFoam" parent="." unique_id=471095260 instance=ExtResource("2_rq7ke")]
-visible = false
 position = Vector2(8, 8)
 scale = Vector2(0.15, 0.15)
 frame_progress = 0.2285067

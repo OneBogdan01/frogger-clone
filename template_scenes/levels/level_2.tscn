@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ccmxpdt2ymguc" path="res://menu_template/scenes/windows/pause_menu_layer.tscn" id="3_cvsxk"]
 [ext_resource type="Script" uid="uid://n5r7182uw8ar" path="res://menu_template/scenes/windows/game_over_controller.gd" id="4_ypfpx"]
 [ext_resource type="PackedScene" uid="uid://bxf8qo5a7e5o" path="res://menu_template/scenes/windows/game_over_layer.tscn" id="5_0lnoc"]
+[ext_resource type="Script" uid="uid://b7jfhwpur450o" path="res://template_scenes/levels/hud.gd" id="6_cvsxk"]
 [ext_resource type="PackedScene" uid="uid://deyfkaw3fdaxx" path="res://template_scenes/levels/world.tscn" id="6_t637h"]
 [ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="7_27tik"]
 [ext_resource type="Script" uid="uid://cv2cpn86jb0rf" path="res://scripts/score.gd" id="8_7qycp"]
@@ -78,6 +79,8 @@ script = ExtResource("4_ypfpx")
 game_over_menu_packed = ExtResource("5_0lnoc")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1012343135]
+unique_name_in_owner = true
+script = ExtResource("6_cvsxk")
 
 [node name="HealthContainer" type="PanelContainer" parent="HUD" unique_id=1554584428]
 anchors_preset = 2
@@ -171,11 +174,6 @@ editable = false
 scrollable = false
 script = ExtResource("9_0cac6")
 
-[node name="Button" type="Button" parent="HUD" unique_id=1548926755]
-visible = false
-offset_right = 80.0
-offset_bottom = 64.0
-
 [node name="Panel" type="Panel" parent="HUD" unique_id=291318227]
 z_index = -3
 anchors_preset = 15
@@ -223,17 +221,36 @@ position = Vector2(-40, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tl3sq")
 
+[node name="Button" type="Button" parent="HUD" unique_id=1548926755]
+offset_right = 80.0
+offset_bottom = 64.0
+
 [node name="Panel2" type="Panel" parent="HUD" unique_id=1653144320]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6p580")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=94134538]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="HUD/MarginContainer" unique_id=1331185271]
+layout_mode = 2
+text = "Level 2"
+horizontal_alignment = 1
 
 [connection signal="level_completed" from="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="load_next_level"]
 [connection signal="lillypad_filled" from="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="_on_world_lillypad_filled"]
 [connection signal="player_died" from="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="_player_died"]
+[connection signal="pressed" from="HUD/Button" to="." method="load_next_level"]
 
 [editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World"]
 [editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World/Enviroment"]

@@ -28,6 +28,7 @@ func _ready() -> void:
 		push_error("An error occurred when trying to access the path.")
 	%HUD.time_slider.time_run_out.connect(%World.player_killed)
 	%World.player_respawned.connect(%HUD.time_slider.reset)
+	%World.player_died.connect(_player_died)
 
 
 func _player_died():
@@ -40,6 +41,8 @@ func _player_died():
 			break
 	if has_health == false:
 		%GameOverController.game_over()
+	else:
+		%World.player_respawn()
 
 
 func _on_world_lillypad_filled() -> void:

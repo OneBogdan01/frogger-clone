@@ -8,8 +8,7 @@ size = Vector2(56, 13)
 
 [sub_resource type="GDScript" id="GDScript_1l2iw"]
 resource_name = "underwater_trigger"
-script/source = "@tool
-extends Control
+script/source = "extends Control
 
 @export var under_water_color: Color
 @export var outside_color: Color = Color.WHITE
@@ -20,11 +19,12 @@ extends Control
 
 @export var speed_range_max:=40
 @export var speed_range_min:=20
-
-@export var _base_y: float
+@export var submerge_scale := 0.94
+@export var _base_y: float = -8.0
 var _tween: Tween
 var _animation_speed:float
-
+var _foam_nodes: Array[CanvasItem] = []
+const SPIRTE_SIZE = 16
 func _fresh_tween() -> Tween:
 	if _tween and _tween.is_valid():
 		_tween.kill()
@@ -33,39 +33,23 @@ func _fresh_tween() -> Tween:
 	return t
 	
 func _ready() -> void:
-
 	var moveable = get_parent() as Moveable
-	_animation_speed = inverse_lerp(speed_range_min, speed_range_max, moveable.speed) 
-	_on_resized()
-
+	_animation_speed = inverse_lerp(speed_range_min, speed_range_max, moveable.speed)
+	await _on_resized()
 	if under_water:
+		await get_tree().create_timer(randf_range(0.0, %OverWater.wait_time)).timeout
 		%OverWater.start()
-func _enter_water() -> void:
-	_tween = _fresh_tween()
-	_tween.tween_property(self, \"modulate\", under_water_color, transition_duration)
-	_tween.tween_property(self, \"position:y\", _base_y + submerge_depth, transition_duration) \\
-		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	await _tween.finished
-	%CollisionShape2D.disabled = true
-	%UnderWater.start()
 
 
-func _exit_water() -> void:
-	%CollisionShape2D.disabled = false
-	_tween = _fresh_tween()
-	_tween.tween_property(self, \"modulate\", outside_color, transition_duration)
-	_tween.tween_property(self, \"position:y\", _base_y, transition_duration) \\
-		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	await _tween.finished
-	%OverWater.start()
-const SPIRTE_SIZE = 16
 func _on_resized() -> void:
 	for child in get_children():
 		child.queue_free()
 	await get_tree().process_frame
 
+	_foam_nodes.clear()
+
 	var space_per_turtle := SPIRTE_SIZE
-	var turtles_per_control = (size/space_per_turtle)
+	var turtles_per_control = (size / space_per_turtle)
 	var offset_x = 0.0
 	for i in int(turtles_per_control.x):
 		var turtle_instance := turtle_sprite.instantiate() as AnimatedSprite2D
@@ -73,8 +57,49 @@ func _on_resized() -> void:
 		turtle_instance.name = \"Turtle_%d\" % i
 		turtle_instance.speed_scale = _animation_speed
 		add_child(turtle_instance)
+		if turtle_instance.water_foam is CanvasItem:
+			_foam_nodes.append(turtle_instance.water_foam)
 		offset_x += space_per_turtle
-		
+
+
+
+
+
+func _fade_foam(tween: Tween, target_alpha: float) -> void:
+	for foam in _foam_nodes:
+		tween.tween_property(foam, \"modulate:a\", target_alpha, transition_duration)
+
+func _set_foam_visible(value: bool) -> void:
+	for foam in _foam_nodes:
+		foam.visible = value
+
+func _enter_water() -> void:
+	pivot_offset = size / 2.0
+	_tween = _fresh_tween()
+	_tween.tween_property(self, \"modulate\", under_water_color, transition_duration)
+	_tween.tween_property(self, \"position:y\", _base_y + submerge_depth, transition_duration) \\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_tween.tween_property(self, \"scale\", Vector2.ONE * submerge_scale, transition_duration) \\
+		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	_fade_foam(_tween, 0.0)
+	await _tween.finished
+	%CollisionShape2D.disabled = true
+	_set_foam_visible(false)
+	%UnderWater.start()
+
+func _exit_water() -> void:
+	%CollisionShape2D.disabled = false
+	_set_foam_visible(true)
+	pivot_offset = size / 2.0
+	_tween = _fresh_tween()
+	_tween.tween_property(self, \"modulate\", outside_color, transition_duration)
+	_tween.tween_property(self, \"position:y\", _base_y, transition_duration) \\
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_tween.tween_property(self, \"scale\", Vector2.ONE, transition_duration) \\
+		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	_fade_foam(_tween, 1.0)
+	await _tween.finished
+	%OverWater.start()
 "
 
 [node name="Turtle" type="Area2D" unique_id=699619881]
@@ -105,7 +130,7 @@ under_water_color = Color(0.57, 0.79216665, 1, 0.5568628)
 transition_duration = 0.7
 submerge_depth = 2.0
 turtle_sprite = ExtResource("2_1l2iw")
-_base_y = null
+submerge_scale = 0.8
 
 [node name="OverWater" type="Timer" parent="." unique_id=1770953893]
 unique_name_in_owner = true

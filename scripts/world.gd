@@ -17,18 +17,18 @@ func _activated_lillypad():
 		level_completed.emit()
 		print("Level complete!")
 	else:
-		_player_respawn()
+		player_respawn()
 
 
 func player_killed():
 	player_died.emit()
 	print("player killed")
-	_player_respawn()
 
 
-func _player_respawn():
+func player_respawn():
 	player_respawned.emit()
 	print("player respawned")
+
 	%PlayerSpawnPoint.spawn_player()
 
 

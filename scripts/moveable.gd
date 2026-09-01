@@ -14,7 +14,7 @@ signal moved(increment: Vector2)
 		dir = value
 
 		_direction = Vector2.LEFT if value == "Left" else Vector2.RIGHT
-		scale.x = -1.0 if value == "Left" else 1.0
+		scale.x = -scale.x if value == "Left" else scale.x
 
 
 func reset_position():

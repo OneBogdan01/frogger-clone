@@ -18,6 +18,7 @@ obstacle_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Moveable" unique_id=107639837]
 texture = ExtResource("2_50v30")
+flip_h = true
 region_enabled = true
 region_rect = Rect2(496, 384, 48, 32)
 

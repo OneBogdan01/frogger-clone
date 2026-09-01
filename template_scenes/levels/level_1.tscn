@@ -38,6 +38,21 @@ offset_right = 80.0
 [node name="GameBorder" parent="HUD" index="6" unique_id=1855584129]
 mouse_filter = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=2076836584]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="HUD/MarginContainer" unique_id=1726917200]
+layout_mode = 2
+text = "Level 1"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="HUD/Button2" to="." method="load_next_level"]
+
 [editable path="HUD"]
 [editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World"]
 [editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World/Enviroment"]

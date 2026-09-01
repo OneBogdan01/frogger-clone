@@ -11,7 +11,7 @@ size = Vector2(23.09434, 13)
 size = Vector2(40, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu41q"]
-size = Vector2(24, 13)
+size = Vector2(29, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c77qx"]
 size = Vector2(24, 13)
@@ -32,6 +32,9 @@ speed = 20.0
 [node name="Log2" parent="Logs" unique_id=1331103691 instance=ExtResource("1_u6u3o")]
 position = Vector2(96, 104)
 speed = 20.0
+
+[node name="WaterFoam" parent="Logs/Log2" index="5" unique_id=471095260]
+metadata/_edit_lock_ = true
 
 [node name="Log5" parent="Logs" unique_id=401522673 instance=ExtResource("1_u6u3o")]
 position = Vector2(160, 72)
@@ -113,22 +116,24 @@ speed = 30.0
 shape = SubResource("RectangleShape2D_pnjqe")
 
 [node name="Control" parent="Turtles/Turtle4" index="1" unique_id=1757985487]
-offset_left = -24.0
-offset_right = 24.0
+offset_left = -20.53432
+offset_right = 19.685284
+scale = Vector2(1.0194035, 1.0194035)
+pivot_offset = Vector2(24, 7.9999876)
 under_water_color = Color(0.57, 0.79216665, 1, 0.7490196)
 under_water = true
-_base_y = -8.0
-metadata/_edit_use_anchors_ = true
 
 [node name="Turtle5" parent="Turtles" unique_id=783205748 instance=ExtResource("2_3v7xo")]
 position = Vector2(253, 56)
 speed = 30.0
 
 [node name="CollisionShape2D" parent="Turtles/Turtle5" index="0" unique_id=1397262206]
+position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_nu41q")
 
 [node name="Control" parent="Turtles/Turtle5" index="1" unique_id=1757985487]
-_base_y = -8.0
+offset_left = -18.0
+offset_right = 19.0
 
 [node name="Turtle6" parent="Turtles" unique_id=1990014152 instance=ExtResource("2_3v7xo")]
 position = Vector2(192, 56)
@@ -140,7 +145,6 @@ shape = SubResource("RectangleShape2D_c77qx")
 [node name="Control" parent="Turtles/Turtle6" index="1" unique_id=1757985487]
 offset_left = -16.0
 offset_right = 16.0
-_base_y = -8.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Turtle7" parent="Turtles" unique_id=127172783 instance=ExtResource("2_3v7xo")]
@@ -153,7 +157,6 @@ shape = SubResource("RectangleShape2D_c77qx")
 [node name="Control" parent="Turtles/Turtle7" index="1" unique_id=1757985487]
 offset_left = -16.0
 offset_right = 16.0
-_base_y = -8.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ToLeft" type="Node2D" parent="Turtles" unique_id=1813615127]
@@ -165,12 +168,12 @@ dir = "Left"
 
 [node name="CollisionShape2D" parent="Turtles/ToLeft/Turtle" index="0" unique_id=1397262206]
 shape = SubResource("RectangleShape2D_wbfwu")
+disabled = true
 
 [node name="Control" parent="Turtles/ToLeft/Turtle" index="1" unique_id=1757985487]
 offset_left = -16.0
 offset_right = 16.0
 under_water = true
-_base_y = -8.0
 
 [node name="Turtle3" parent="Turtles/ToLeft" unique_id=1323368961 instance=ExtResource("2_3v7xo")]
 position = Vector2(-128, 88)
@@ -186,44 +189,34 @@ y_sort_enabled = true
 
 [node name="Moveable2" parent="Cars" unique_id=2026401667 instance=ExtResource("3_gj3i2")]
 position = Vector2(200, 192)
-rotation = 3.1415927
-scale = Vector2(1, -1)
 speed = 20.0
 
 [node name="Moveable4" parent="Cars" unique_id=642120229 instance=ExtResource("3_gj3i2")]
 position = Vector2(112, 192)
-rotation = 3.1415927
-scale = Vector2(1, -1)
 speed = 20.0
 
 [node name="Moveable6" parent="Cars" unique_id=1624713805 instance=ExtResource("3_gj3i2")]
 position = Vector2(280, 192)
-rotation = 3.1415927
-scale = Vector2(1, -1)
 speed = 20.0
 
 [node name="Moveable10" parent="Cars" unique_id=548526407 instance=ExtResource("3_gj3i2")]
 position = Vector2(88, 128)
-rotation = 3.1415927
-scale = Vector2(2.88, -1)
+scale = Vector2(2.88, 1)
 speed = 20.0
 distance_to_reset = 370
 
 [node name="Moveable12" parent="Cars" unique_id=1647245548 instance=ExtResource("3_gj3i2")]
 position = Vector2(232, 128)
-rotation = 3.1415927
-scale = Vector2(2.88, -1)
+scale = Vector2(2.88, 1)
 speed = 20.0
 distance_to_reset = 370
 
 [node name="Moveable5" parent="Cars" unique_id=945952991 instance=ExtResource("3_gj3i2")]
 position = Vector2(72, 177)
-scale = Vector2(-1, 1)
 speed = 25.0
 
 [node name="Moveable15" parent="Cars" unique_id=60479993 instance=ExtResource("3_gj3i2")]
 position = Vector2(248, 144)
-scale = Vector2(-1, 1)
 speed = 40.0
 
 [node name="ToLeft" type="Node2D" parent="Cars" unique_id=1448141847]
