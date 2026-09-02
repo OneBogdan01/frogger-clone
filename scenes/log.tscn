@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://32ryj7i8eemk"]
 
 [ext_resource type="PackedScene" uid="uid://d0vxhdnust425" path="res://scenes/moveable.tscn" id="1_spugk"]
-[ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="2_k0uux"]
 [ext_resource type="Script" uid="uid://drs6bhm1r3nuq" path="res://scripts/trigger_periodically.gd" id="2_pt1ea"]
+[ext_resource type="Texture2D" uid="uid://c5t0hidxpdd4k" path="res://assets/sprites/crocodile.png" id="3_cq5k7"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="4_vx63x"]
 [ext_resource type="PackedScene" uid="uid://dwlrcxgeva326" path="res://scenes/water_foam.tscn" id="5_g5036"]
+[ext_resource type="Texture2D" uid="uid://chpa2w2jo3gpj" path="res://assets/sprites/croco_head.png" id="6_cq5k7"]
 [ext_resource type="Texture2D" uid="uid://bb8k1j13vhjrk" path="res://assets/sprites/log.png" id="6_dnvgf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cq5k7"]
@@ -44,7 +45,11 @@ tile_set = SubResource("TileSet_bhunq")
 
 [node name="Sprite2D" parent="." index="1" unique_id=107639837]
 visible = false
-region_rect = Rect2(272, 256, 32, 16)
+position = Vector2(6, -1)
+texture = ExtResource("3_cq5k7")
+hframes = 2
+region_enabled = false
+region_rect = Rect2(0, 0, 48, 16)
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1397262206]
 unique_name_in_owner = true
@@ -66,7 +71,10 @@ script = ExtResource("4_vx63x")
 obstacle_type = 2
 
 [node name="Sprite2D2" type="Sprite2D" parent="TriggerPeriodically/Obstacle" index="0" unique_id=1767846225]
-texture = ExtResource("2_k0uux")
+position = Vector2(6, -2)
+texture = ExtResource("6_cq5k7")
+hframes = 2
+region_rect = Rect2(0, 0, 32, 16)
 
 [node name="ObstacleCollider" type="CollisionShape2D" parent="TriggerPeriodically/Obstacle" index="1" unique_id=1980927433]
 unique_name_in_owner = true
