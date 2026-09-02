@@ -1,3 +1,4 @@
+class_name Score
 extends Label
 
 @export var max_score_per_time := 1000.0

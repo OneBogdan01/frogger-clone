@@ -29,6 +29,7 @@ func _ready() -> void:
 	%HUD.time_slider.time_run_out.connect(%World.player_killed)
 	%World.player_respawned.connect(%HUD.time_slider.reset)
 	%World.player_died.connect(_player_died)
+	%World.lillypad_filled.connect(_on_world_lillypad_filled)
 
 
 func _player_died():
@@ -46,4 +47,4 @@ func _player_died():
 
 
 func _on_world_lillypad_filled() -> void:
-	%HUD.score.increase_score(%HUD.time_slider)
+	%HUD.score.increase_score(%HUD.time_slider.ratio)

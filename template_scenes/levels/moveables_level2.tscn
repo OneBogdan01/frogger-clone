@@ -4,6 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://crtpvf5j5nnm7" path="res://scenes/turtle.tscn" id="2_u7ngg"]
 [ext_resource type="PackedScene" uid="uid://b2borrhg4jpdi" path="res://scenes/car.tscn" id="3_fwmf3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwmf3"]
+size = Vector2(63.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2s04"]
+size = Vector2(47, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ngg"]
+size = Vector2(47.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lsxt"]
+size = Vector2(47.500015, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnjqe"]
 size = Vector2(40, 13)
 
@@ -20,12 +32,10 @@ y_sort_enabled = true
 
 [node name="Log" parent="Logs" unique_id=699619881 instance=ExtResource("1_4lsxt")]
 position = Vector2(160, 104)
-scale = Vector2(1.9200001, 1)
 speed = 30.0
 
 [node name="Log2" parent="Logs" unique_id=609950980 instance=ExtResource("1_4lsxt")]
 position = Vector2(96, 104)
-scale = Vector2(1.54, 1)
 speed = 30.0
 
 [node name="Log5" parent="Logs" unique_id=785265490 instance=ExtResource("1_4lsxt")]
@@ -34,28 +44,44 @@ speed = 37.0
 
 [node name="Log7" parent="Logs" unique_id=1052510224 instance=ExtResource("1_4lsxt")]
 position = Vector2(232, 72)
-scale = Vector2(3.2, 1)
 speed = 37.0
+
+[node name="TileMapLayer" parent="Logs/Log7" index="0" unique_id=1158816199]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0)
+
+[node name="CollisionShape2D" parent="Logs/Log7" index="2" unique_id=1397262206]
+position = Vector2(23.25, 0)
+shape = SubResource("RectangleShape2D_fwmf3")
 
 [node name="Log6" parent="Logs" unique_id=1343516102 instance=ExtResource("1_4lsxt")]
 position = Vector2(48, 72)
-scale = Vector2(2.12, 1)
 speed = 37.0
 
 [node name="Log8" parent="Logs" unique_id=1028034227 instance=ExtResource("1_4lsxt")]
 position = Vector2(104, 72)
-scale = Vector2(2.12, 1)
 speed = 37.0
 
+[node name="TileMapLayer" parent="Logs/Log8" index="0" unique_id=1158816199]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="CollisionShape2D" parent="Logs/Log8" index="2" unique_id=1397262206]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_u2s04")
+
 [node name="Log9" parent="Logs" unique_id=70167375 instance=ExtResource("1_4lsxt")]
-position = Vector2(305, 72)
-scale = Vector2(2.12, 1)
+position = Vector2(328, 72)
 speed = 37.0
 
 [node name="Log4" parent="Logs" unique_id=454239776 instance=ExtResource("1_4lsxt")]
 position = Vector2(27, 104)
-scale = Vector2(2.04, 1)
 speed = 30.0
+
+[node name="TileMapLayer" parent="Logs/Log4" index="0" unique_id=1158816199]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0)
+
+[node name="CollisionShape2D" parent="Logs/Log4" index="2" unique_id=1397262206]
+position = Vector2(15.25, 0)
+shape = SubResource("RectangleShape2D_u7ngg")
 
 [node name="Log3" parent="Logs" unique_id=1027886224 instance=ExtResource("1_4lsxt")]
 position = Vector2(208, 104)
@@ -67,19 +93,23 @@ position = Vector2(368, 0)
 
 [node name="Log8" parent="Logs/ToLeft" unique_id=2147408000 instance=ExtResource("1_4lsxt")]
 position = Vector2(-194.00002, 40.000004)
-scale = Vector2(3.2799997, 1)
 speed = 30.0
 dir = "Left"
 
+[node name="TileMapLayer" parent="Logs/ToLeft/Log8" index="0" unique_id=1158816199]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0)
+
+[node name="CollisionShape2D" parent="Logs/ToLeft/Log8" index="2" unique_id=1397262206]
+position = Vector2(15.250015, 0)
+shape = SubResource("RectangleShape2D_4lsxt")
+
 [node name="Log9" parent="Logs/ToLeft" unique_id=2019828968 instance=ExtResource("1_4lsxt")]
 position = Vector2(-80, 40.000004)
-scale = Vector2(1.9599996, 1)
 speed = 30.0
 dir = "Left"
 
 [node name="Log10" parent="Logs/ToLeft" unique_id=1761078542 instance=ExtResource("1_4lsxt")]
 position = Vector2(-8, 40)
-scale = Vector2(1.9599996, 1)
 speed = 30.0
 dir = "Left"
 
@@ -96,7 +126,6 @@ shape = SubResource("RectangleShape2D_pnjqe")
 offset_left = -24.0
 offset_right = 24.0
 under_water = true
-_base_y = -8.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Turtle5" parent="Turtles" unique_id=1199740097 instance=ExtResource("2_u7ngg")]
@@ -144,7 +173,6 @@ dir = "Left"
 
 [node name="Control" parent="Turtles/ToLeft/Turtle" index="1" unique_id=1757985487]
 under_water = true
-_base_y = -8.0
 
 [node name="Turtle3" parent="Turtles/ToLeft" unique_id=85461735 instance=ExtResource("2_u7ngg")]
 position = Vector2(-72, 88)
@@ -223,6 +251,13 @@ dir = "Left"
 position = Vector2(-280, 160)
 dir = "Left"
 
+[editable path="Logs/Log"]
+[editable path="Logs/Log7"]
+[editable path="Logs/Log6"]
+[editable path="Logs/Log8"]
+[editable path="Logs/Log9"]
+[editable path="Logs/Log4"]
+[editable path="Logs/ToLeft/Log8"]
 [editable path="Turtles/Turtle4"]
 [editable path="Turtles/Turtle5"]
 [editable path="Turtles/Turtle6"]
