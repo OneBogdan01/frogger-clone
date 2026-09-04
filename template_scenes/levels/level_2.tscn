@@ -247,9 +247,6 @@ layout_mode = 2
 text = "Level 2"
 horizontal_alignment = 1
 
-[connection signal="level_completed" from="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="load_next_level"]
-[connection signal="lillypad_filled" from="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="_on_world_lillypad_filled"]
-[connection signal="player_died" from="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World" to="." method="_player_died"]
 [connection signal="pressed" from="HUD/Button" to="." method="load_next_level"]
 
 [editable path="HUD/AspectRatioContainer/SubViewportContainer/SubViewport/World"]

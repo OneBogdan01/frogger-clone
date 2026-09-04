@@ -4,15 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://crtpvf5j5nnm7" path="res://scenes/turtle.tscn" id="2_3v7xo"]
 [ext_resource type="PackedScene" uid="uid://dwlrcxgeva326" path="res://scenes/water_foam.tscn" id="2_gj3i2"]
 [ext_resource type="PackedScene" uid="uid://b2borrhg4jpdi" path="res://scenes/car.tscn" id="3_gj3i2"]
+[ext_resource type="PackedScene" uid="uid://gpyfqty0n1q4" path="res://template_scenes/levels/croco_dile.tscn" id="3_mr1cq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mr1cq"]
 size = Vector2(63, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gj3i2"]
 size = Vector2(63, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kx1j"]
-size = Vector2(23.09434, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3v7xo"]
 size = Vector2(95, 12)
@@ -24,7 +22,7 @@ size = Vector2(95, 12)
 size = Vector2(63.000008, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pnjqe"]
-size = Vector2(40, 13)
+size = Vector2(45, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu41q"]
 size = Vector2(29, 13)
@@ -118,24 +116,9 @@ script = null
 position = Vector2(8, 0)
 script = null
 
-[node name="Log8" parent="Logs" unique_id=133125428 instance=ExtResource("1_u6u3o")]
+[node name="Croco" parent="Logs" unique_id=1732145461 instance=ExtResource("3_mr1cq")]
 position = Vector2(104, 72)
-scale = Vector2(2.12, 1)
 speed = 25.0
-
-[node name="Sprite2D" parent="Logs/Log8" index="1" unique_id=107639837]
-position = Vector2(3.320755, 0)
-scale = Vector2(1.2075472, 1)
-
-[node name="CollisionShape2D" parent="Logs/Log8" index="2" unique_id=1397262206]
-position = Vector2(3.5471706, 0.5)
-shape = SubResource("RectangleShape2D_2kx1j")
-
-[node name="TriggerPeriodically" parent="Logs/Log8" index="3" unique_id=618544893]
-visible = true
-position = Vector2(11.320757, 0)
-scale = Vector2(0.5, 1)
-under_water = true
 
 [node name="Log9" parent="Logs" unique_id=1503120162 instance=ExtResource("1_u6u3o")]
 position = Vector2(305, 72)
@@ -289,22 +272,21 @@ y_sort_enabled = true
 
 [node name="Turtle4" parent="Turtles" unique_id=1168548347 instance=ExtResource("2_3v7xo")]
 position = Vector2(88, 56)
-speed = 30.0
 
 [node name="CollisionShape2D" parent="Turtles/Turtle4" index="0" unique_id=1397262206]
+position = Vector2(2.5, 0.5)
 shape = SubResource("RectangleShape2D_pnjqe")
 
 [node name="Control" parent="Turtles/Turtle4" index="1" unique_id=1757985487]
 offset_left = -20.53432
-offset_right = 19.685284
+offset_right = 27.533009
 scale = Vector2(1.0194035, 1.0194035)
 pivot_offset = Vector2(24, 7.9999876)
 under_water_color = Color(0.57, 0.79216665, 1, 0.7490196)
 under_water = true
 
 [node name="Turtle5" parent="Turtles" unique_id=783205748 instance=ExtResource("2_3v7xo")]
-position = Vector2(253, 56)
-speed = 30.0
+position = Vector2(335, 56)
 
 [node name="CollisionShape2D" parent="Turtles/Turtle5" index="0" unique_id=1397262206]
 position = Vector2(-1.5, 0.5)
@@ -313,10 +295,10 @@ shape = SubResource("RectangleShape2D_nu41q")
 [node name="Control" parent="Turtles/Turtle5" index="1" unique_id=1757985487]
 offset_left = -18.0
 offset_right = 19.0
+under_water = true
 
 [node name="Turtle6" parent="Turtles" unique_id=1990014152 instance=ExtResource("2_3v7xo")]
 position = Vector2(192, 56)
-speed = 30.0
 
 [node name="CollisionShape2D" parent="Turtles/Turtle6" index="0" unique_id=1397262206]
 shape = SubResource("RectangleShape2D_c77qx")
@@ -328,7 +310,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Turtle7" parent="Turtles" unique_id=127172783 instance=ExtResource("2_3v7xo")]
 position = Vector2(144, 56)
-speed = 30.0
 
 [node name="CollisionShape2D" parent="Turtles/Turtle7" index="0" unique_id=1397262206]
 shape = SubResource("RectangleShape2D_c77qx")
@@ -415,7 +396,6 @@ dir = "Left"
 [editable path="Logs/Log2"]
 [editable path="Logs/Log7"]
 [editable path="Logs/Log6"]
-[editable path="Logs/Log8"]
 [editable path="Logs/Log4"]
 [editable path="Logs/Log3"]
 [editable path="Logs/ToLeft/Log8"]

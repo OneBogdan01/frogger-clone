@@ -30,6 +30,7 @@ func _ready() -> void:
 	%World.player_respawned.connect(%HUD.time_slider.reset)
 	%World.player_died.connect(_player_died)
 	%World.lillypad_filled.connect(_on_world_lillypad_filled)
+	%World.level_completed.connect(load_next_level)
 
 
 func _player_died():

@@ -5,17 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://6p80psu4xqnv" path="res://assets/sprites/frog.png" id="3_5am0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmc2x"]
-size = Vector2(14, 14)
+size = Vector2(10, 12)
 
 [node name="PlayerFrog" type="Area2D" unique_id=1957262225]
 z_index = 2
 y_sort_enabled = true
 collision_mask = 31
 script = ExtResource("1_ej6fs")
+hop_time = 0.09
 water_dead_effect = ExtResource("2_5am0y")
 platform_layers = 4
+anticipate_time = 0.04
+land_time = 0.04
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=682310701]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_vmc2x")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=73784648]
