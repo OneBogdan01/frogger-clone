@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bwdq42y7g7xjm"]
 
 [ext_resource type="Script" uid="uid://ckg52431x810v" path="res://scripts/lillypad.gd" id="1_0clm6"]
-[ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="2_wykk6"]
-[ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="3_wykk6"]
+[ext_resource type="Texture2D" uid="uid://b2u3jjhgxkaw5" path="res://assets/sprites/lillypad.png" id="2_wykk6"]
+[ext_resource type="Texture2D" uid="uid://6p80psu4xqnv" path="res://assets/sprites/frog.png" id="3_wykk6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohfdh"]
 radius = 7.0
@@ -10,17 +10,35 @@ radius = 7.0
 [node name="Lillypad" type="Area2D" unique_id=829702650]
 collision_layer = 8
 script = ExtResource("1_0clm6")
+impact_time = 0.1
 
-[node name="LillypadSprite" type="Sprite2D" parent="." unique_id=220123465]
-self_modulate = Color(0.59607846, 0.74509805, 0, 1)
-texture = ExtResource("2_wykk6")
-
-[node name="FilledSprite" type="Sprite2D" parent="." unique_id=1738898957]
+[node name="Visuals" type="Node2D" parent="." unique_id=2099747720]
 unique_name_in_owner = true
-visible = false
-texture = ExtResource("3_wykk6")
-region_enabled = true
+
+[node name="LillypadSprite" type="Sprite2D" parent="Visuals" unique_id=220123465]
+texture = ExtResource("2_wykk6")
+hframes = 2
+frame = 1
+
+[node name="FilledSprite" type="Sprite2D" parent="Visuals" unique_id=1738898957]
+unique_name_in_owner = true
+texture = ExtResource("2_wykk6")
+hframes = 2
 region_rect = Rect2(496, 208, 16, 16)
+
+[node name="Frog" type="Sprite2D" parent="." unique_id=248799099]
+unique_name_in_owner = true
+z_index = 1
+texture = ExtResource("3_wykk6")
+hframes = 2
+
+[node name="Shadow" type="Sprite2D" parent="Frog" unique_id=349641456]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 0.50980395)
+z_index = -1
+position = Vector2(-1, 1)
+texture = ExtResource("3_wykk6")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1178664468]
 unique_name_in_owner = true

@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://dysmchbq8dt6t"]
 
 [ext_resource type="Script" uid="uid://b7jfhwpur450o" path="res://template_scenes/levels/hud.gd" id="1_r84bx"]
-[ext_resource type="Texture2D" uid="uid://0jm4skwtv1vm" path="res://assets/effects/textures/circle_16.png" id="1_t4xfc"]
+[ext_resource type="Texture2D" uid="uid://6p80psu4xqnv" path="res://assets/sprites/frog.png" id="2_74hey"]
 [ext_resource type="Script" uid="uid://cv2cpn86jb0rf" path="res://scripts/score.gd" id="2_d5old"]
 [ext_resource type="Script" uid="uid://c5loe4nfyf85v" path="res://scripts/time_counter.gd" id="3_o2x0n"]
 [ext_resource type="Script" uid="uid://cvt6n2mqsu85k" path="res://template_scenes/levels/skip_game.gd" id="5_74hey"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74hey"]
+atlas = ExtResource("2_74hey")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="DPITexture" id="DPITexture_3df6c"]
 
@@ -65,17 +69,17 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=567966292]
 layout_mode = 2
-texture = ExtResource("1_t4xfc")
+texture = SubResource("AtlasTexture_74hey")
 stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=1848099308]
 layout_mode = 2
-texture = ExtResource("1_t4xfc")
+texture = SubResource("AtlasTexture_74hey")
 stretch_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="HealthContainer/HealthContainer" unique_id=346344499]
 layout_mode = 2
-texture = ExtResource("1_t4xfc")
+texture = SubResource("AtlasTexture_74hey")
 stretch_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HealthContainer" unique_id=31682192]
@@ -128,6 +132,7 @@ text = "Time"
 
 [node name="TimeSlider" type="VSlider" parent="TimeContainer/BoxContainer" unique_id=1601595719]
 unique_name_in_owner = true
+modulate = Color(0, 0.90588236, 0.3372549, 1)
 layout_mode = 2
 theme_override_icons/grabber_disabled = SubResource("DPITexture_3df6c")
 step = 0.0

@@ -32,7 +32,7 @@ var _color_tween: Tween
 
 func _ready() -> void:
 	if under_water:
-		await get_tree().create_timer(randf_range(0.3, %OverWater.wait_time * 3.0)).timeout
+		await get_tree().create_timer(randf_range(0.5, %OverWater.wait_time * 3.0)).timeout
 		%OverWater.start()
 		show()
 	_base_scale = scale

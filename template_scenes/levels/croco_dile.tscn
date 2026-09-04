@@ -71,7 +71,7 @@ tile_set = SubResource("TileSet_bhunq")
 position = Vector2(6, -1)
 sprite_frames = SubResource("SpriteFrames_bhunq")
 autoplay = "default"
-frame_progress = 0.27329418
+frame_progress = 0.0136892665
 speed_scale = 0.75
 
 [node name="Sprite2D" parent="." index="2" unique_id=107639837]
