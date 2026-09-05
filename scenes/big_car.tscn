@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bycg5mqoemwyx"]
+
+[ext_resource type="Script" uid="uid://cgu454fb4qwi" path="res://scripts/moveable.gd" id="1_oi65a"]
+[ext_resource type="ArrayMesh" uid="uid://c6ugsuryum40l" path="res://assets/Car 08/Car8.obj" id="2_jfqas"]
+[ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="2_wl1ky"]
+[ext_resource type="Shader" uid="uid://dh623wjdkoggh" path="res://shaders/car_3d_to_2d.gdshader" id="3_kvg7d"]
+[ext_resource type="Texture2D" uid="uid://3k2h80sbthfg" path="res://assets/Car 08/Car8.png" id="3_rqee1"]
+[ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="7_26cm1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axi2n"]
+shader = ExtResource("3_kvg7d")
+shader_parameter/texture_mode = 0
+shader_parameter/alpha_mode = 0
+shader_parameter/quantize_size = 9
+shader_parameter/snap_to_world = false
+shader_parameter/limit_subpixels = true
+shader_parameter/dither_enabled = true
+shader_parameter/dither_pattern = 0
+shader_parameter/levels = 15
+shader_parameter/contrast = 1.0
+shader_parameter/brightness = 0.0
+shader_parameter/average = 0.0
+shader_parameter/palette_mode = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kvg7d"]
+viewport_path = NodePath("Moveable/Car/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvg7d"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("3_rqee1")
+roughness = 0.0
+
+[sub_resource type="Environment" id="Environment_oi65a"]
+ambient_light_source = 2
+ambient_light_color = Color(0.9471994, 0.9471994, 0.9471994, 1)
+ambient_light_energy = 1.06
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqee1"]
+size = Vector2(33, 10)
+
+[node name="Car" type="Node2D" unique_id=2026401667]
+script = ExtResource("1_oi65a")
+speed = 30.0
+
+[node name="Moveable" type="Area2D" parent="." unique_id=699619881]
+collision_layer = 2
+script = ExtResource("2_wl1ky")
+obstacle_type = 1
+
+[node name="Car" type="Node2D" parent="Moveable" unique_id=1843019273]
+
+[node name="CarSprite" type="TextureRect" parent="Moveable/Car" unique_id=36621949]
+material = SubResource("ShaderMaterial_axi2n")
+offset_left = -20.0
+offset_top = -4.0
+offset_right = 36.0
+offset_bottom = 16.0
+texture = SubResource("ViewportTexture_kvg7d")
+expand_mode = 1
+
+[node name="SubViewport" type="SubViewport" parent="Moveable/Car" unique_id=722705536]
+transparent_bg = true
+size = Vector2i(1312, 584)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Moveable/Car/SubViewport" unique_id=1012612163]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("2_jfqas")
+surface_material_override/0 = SubResource("StandardMaterial3D_kvg7d")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Moveable/Car/SubViewport" unique_id=1552394752]
+environment = SubResource("Environment_oi65a")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Moveable/Car/SubViewport" unique_id=380809800]
+transform = Transform3D(-0.9902149, 0.12570304, 0.06060558, 0.139167, 0.9216779, 0.36213657, -0.01033709, 0.36702713, -0.9301529, -10.1435585, 10.251185, 0)
+light_energy = 1.425
+
+[node name="Camera3D" type="Camera3D" parent="Moveable/Car/SubViewport" unique_id=1892775768]
+transform = Transform3D(-0.026177207, 0.71755517, -0.6960098, -9.313226e-10, 0.69624835, 0.71780115, 0.99965745, 0.018790029, -0.01822583, -19.8399, 24.208088, -0.0667198)
+projection = 1
+size = 10.268979
+
+[node name="Sprite2D" type="Sprite2D" parent="Moveable" unique_id=107639837]
+visible = false
+texture = ExtResource("7_26cm1")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(496, 384, 48, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moveable" unique_id=1397262206]
+position = Vector2(5.5, 8)
+shape = SubResource("RectangleShape2D_rqee1")

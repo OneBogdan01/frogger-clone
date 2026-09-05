@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bwor28h3l1vvw"]
+
+[ext_resource type="Texture2D" uid="uid://b4ehidch8edj6" path="res://assets/spritesheet.png" id="1_wywbb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yik17"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax8ow"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmitn"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3pdv"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqcux"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eerx0"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uekq3"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hq0t"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc2e0"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og3n2"]
+atlas = ExtResource("1_wywbb")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yik17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax8ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmitn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3pdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqcux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eerx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uekq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hq0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc2e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og3n2")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="PlayerDeath" type="Node2D" unique_id=1591193455]
+process_mode = 3
+
+[node name="Spritesheet" type="AnimatedSprite2D" parent="." unique_id=1577207524]
+z_index = 5
+sprite_frames = SubResource("SpriteFrames_bhunq")
+autoplay = "default"
+frame = 10
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="Spritesheet" to="." method="queue_free"]

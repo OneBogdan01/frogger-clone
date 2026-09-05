@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cx8sn4bfim20q" path="res://scripts/player_frog.gd" id="1_ej6fs"]
 [ext_resource type="PackedScene" uid="uid://cp8ifil1at4xf" path="res://scenes/water_splash.tscn" id="2_5am0y"]
 [ext_resource type="Texture2D" uid="uid://6p80psu4xqnv" path="res://assets/sprites/frog.png" id="3_5am0y"]
+[ext_resource type="PackedScene" uid="uid://bwor28h3l1vvw" path="res://scenes/player_death.tscn" id="3_u82ls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmc2x"]
 size = Vector2(10, 12)
@@ -14,6 +15,7 @@ collision_mask = 31
 script = ExtResource("1_ej6fs")
 hop_time = 0.09
 water_dead_effect = ExtResource("2_5am0y")
+killed_dead_effect = ExtResource("3_u82ls")
 platform_layers = 4
 anticipate_time = 0.04
 land_time = 0.04

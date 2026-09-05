@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c50vixlqewqv3"]
+
+[ext_resource type="ArrayMesh" uid="uid://bcb74khhq86qa" path="res://assets/Car 01/Car.obj" id="1_6exr5"]
+[ext_resource type="Shader" uid="uid://dh623wjdkoggh" path="res://shaders/car_3d_to_2d.gdshader" id="1_u1x66"]
+[ext_resource type="Texture2D" uid="uid://dog0bn1pxs50e" path="res://assets/Car 01/car.png" id="3_lbx1c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6exr5"]
+shader = ExtResource("1_u1x66")
+shader_parameter/texture_mode = 0
+shader_parameter/alpha_mode = 0
+shader_parameter/quantize_size = 4
+shader_parameter/snap_to_world = true
+shader_parameter/limit_subpixels = true
+shader_parameter/dither_enabled = true
+shader_parameter/dither_pattern = 0
+shader_parameter/levels = 6
+shader_parameter/contrast = 1.0
+shader_parameter/brightness = 0.0
+shader_parameter/average = 0.0
+shader_parameter/palette_mode = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6exr5"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1x66"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("3_lbx1c")
+roughness = 0.0
+
+[sub_resource type="Environment" id="Environment_bhunq"]
+ambient_light_source = 3
+ambient_light_color = Color(0.9471994, 0.9471994, 0.9471994, 1)
+ambient_light_energy = 5.41
+
+[node name="Car" type="Node2D" unique_id=1986268599]
+
+[node name="CarSprite" type="TextureRect" parent="." unique_id=36621949]
+material = SubResource("ShaderMaterial_6exr5")
+offset_right = 1024.0
+offset_bottom = 512.0
+texture = SubResource("ViewportTexture_6exr5")
+expand_mode = 1
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=722705536]
+transparent_bg = true
+size = Vector2i(1024, 512)
+render_target_update_mode = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport" unique_id=1012612163]
+mesh = ExtResource("1_6exr5")
+surface_material_override/0 = SubResource("StandardMaterial3D_u1x66")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport" unique_id=1552394752]
+environment = SubResource("Environment_bhunq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport" unique_id=380809800]
+transform = Transform3D(-0.060415026, 0.61575186, -0.78562057, 0.047212552, 0.78794014, 0.6139392, 0.9970562, 0, -0.07667464, -7.8417807, 3.7712379, 0)
+visible = false
+light_energy = 3.407
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1892775768]
+transform = Transform3D(-0.026177201, 0.78782797, -0.6153388, 0, 0.61554974, 0.78809804, 0.99965733, 0.020630201, -0.016113369, -18.273811, 24.626263, -0.48737752)
+projection = 1
+current = true
+size = 4.11

@@ -4,7 +4,7 @@ extends Area2D
 @export var tile_size := 16.0
 @export var hop_time := .1
 @export var water_dead_effect: PackedScene
-
+@export var killed_dead_effect: PackedScene
 @onready var ray_direction: RayCast2D = %RayDirection
 @export_flags_2d_physics var platform_layers
 const MOVES := {
@@ -51,6 +51,10 @@ func destroy_player(obstacle_type: Obstacle.ObstacleType):
 			spawn_effect(water_dead_effect)
 		Obstacle.ObstacleType.ANIMAL:
 			print("player eaten by an animal")
+			spawn_effect(killed_dead_effect)
+		Obstacle.ObstacleType.CAR:
+			print("player killed by car")
+			spawn_effect(killed_dead_effect)
 
 	#TODO animate kill
 	#match obstacle_type:

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crtpvf5j5nnm7" path="res://scenes/turtle.tscn" id="2_u7ngg"]
 [ext_resource type="PackedScene" uid="uid://b2borrhg4jpdi" path="res://scenes/car.tscn" id="3_fwmf3"]
 [ext_resource type="PackedScene" uid="uid://gpyfqty0n1q4" path="res://template_scenes/levels/croco_dile.tscn" id="3_u2s04"]
+[ext_resource type="PackedScene" uid="uid://bycg5mqoemwyx" path="res://scenes/big_car.tscn" id="6_u2s04"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ngg"]
 size = Vector2(47.5, 16)
@@ -23,6 +24,18 @@ size = Vector2(24, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2s04"]
 size = Vector2(32, 13)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cb2w4"]
+viewport_path = NodePath("Moveable/Car/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wu16g"]
+viewport_path = NodePath("Moveable/Car/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_duies"]
+viewport_path = NodePath("Moveable/Car/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_54nta"]
+viewport_path = NodePath("Moveable/Car/SubViewport")
 
 [node name="Moveables" type="Node2D" unique_id=1790982113]
 y_sort_enabled = true
@@ -246,20 +259,6 @@ speed = 40.0
 y_sort_enabled = true
 position = Vector2(368, 0)
 
-[node name="Moveable10" parent="Cars/ToLeft" unique_id=2071177862 instance=ExtResource("3_fwmf3")]
-position = Vector2(-280, 128)
-scale = Vector2(3.08, 1)
-speed = 50.0
-distance_to_reset = 370
-dir = "Left"
-
-[node name="Moveable12" parent="Cars/ToLeft" unique_id=78804025 instance=ExtResource("3_fwmf3")]
-position = Vector2(-136, 128)
-scale = Vector2(2.88, 1)
-speed = 50.0
-distance_to_reset = 370
-dir = "Left"
-
 [node name="Moveable2" parent="Cars/ToLeft" unique_id=1581759238 instance=ExtResource("3_fwmf3")]
 position = Vector2(-168, 192)
 speed = 20.0
@@ -283,6 +282,42 @@ dir = "Left"
 position = Vector2(-280, 160)
 dir = "Left"
 
+[node name="Car" parent="Cars/ToLeft" unique_id=432540264 instance=ExtResource("6_u2s04")]
+position = Vector2(-290, 128)
+speed = 50.0
+distance_to_reset = 370
+dir = "Left"
+
+[node name="CarSprite" parent="Cars/ToLeft/Car/Moveable/Car" parent_id_path=PackedInt32Array(432540264, 1843019273) index="0" unique_id=36621949]
+texture = SubResource("ViewportTexture_cb2w4")
+
+[node name="Car2" parent="Cars/ToLeft" unique_id=1004760718 instance=ExtResource("6_u2s04")]
+position = Vector2(-247, 128)
+speed = 50.0
+distance_to_reset = 370
+dir = "Left"
+
+[node name="CarSprite" parent="Cars/ToLeft/Car2/Moveable/Car" parent_id_path=PackedInt32Array(1004760718, 1843019273) index="0" unique_id=36621949]
+texture = SubResource("ViewportTexture_wu16g")
+
+[node name="Car3" parent="Cars/ToLeft" unique_id=757075380 instance=ExtResource("6_u2s04")]
+position = Vector2(-167, 128)
+speed = 50.0
+distance_to_reset = 370
+dir = "Left"
+
+[node name="CarSprite" parent="Cars/ToLeft/Car3/Moveable/Car" parent_id_path=PackedInt32Array(757075380, 1843019273) index="0" unique_id=36621949]
+texture = SubResource("ViewportTexture_duies")
+
+[node name="Car4" parent="Cars/ToLeft" unique_id=875458050 instance=ExtResource("6_u2s04")]
+position = Vector2(-124, 128)
+speed = 50.0
+distance_to_reset = 370
+dir = "Left"
+
+[node name="CarSprite" parent="Cars/ToLeft/Car4/Moveable/Car" parent_id_path=PackedInt32Array(875458050, 1843019273) index="0" unique_id=36621949]
+texture = SubResource("ViewportTexture_54nta")
+
 [editable path="Logs/Log"]
 [editable path="Logs/Log4"]
 [editable path="Logs/ToLeft/Log6"]
@@ -293,3 +328,7 @@ dir = "Left"
 [editable path="Turtles/Turtle6"]
 [editable path="Turtles/Turtle7"]
 [editable path="Turtles/ToLeft/Turtle"]
+[editable path="Cars/ToLeft/Car"]
+[editable path="Cars/ToLeft/Car2"]
+[editable path="Cars/ToLeft/Car3"]
+[editable path="Cars/ToLeft/Car4"]
