@@ -25,6 +25,9 @@ size = Vector2(24, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2s04"]
 size = Vector2(32, 13)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_u2s04"]
+viewport_path = NodePath("Moveable/Car/SubViewport")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_cb2w4"]
 viewport_path = NodePath("Moveable/Car/SubViewport")
 
@@ -32,9 +35,6 @@ viewport_path = NodePath("Moveable/Car/SubViewport")
 viewport_path = NodePath("Moveable/Car/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_duies"]
-viewport_path = NodePath("Moveable/Car/SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_54nta"]
 viewport_path = NodePath("Moveable/Car/SubViewport")
 
 [node name="Moveables" type="Node2D" unique_id=1790982113]
@@ -289,7 +289,7 @@ distance_to_reset = 370
 dir = "Left"
 
 [node name="CarSprite" parent="Cars/ToLeft/Car/Moveable/Car" parent_id_path=PackedInt32Array(432540264, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_cb2w4")
+texture = SubResource("ViewportTexture_u2s04")
 
 [node name="Car2" parent="Cars/ToLeft" unique_id=1004760718 instance=ExtResource("6_u2s04")]
 position = Vector2(-247, 128)
@@ -298,7 +298,7 @@ distance_to_reset = 370
 dir = "Left"
 
 [node name="CarSprite" parent="Cars/ToLeft/Car2/Moveable/Car" parent_id_path=PackedInt32Array(1004760718, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_wu16g")
+texture = SubResource("ViewportTexture_cb2w4")
 
 [node name="Car3" parent="Cars/ToLeft" unique_id=757075380 instance=ExtResource("6_u2s04")]
 position = Vector2(-167, 128)
@@ -307,7 +307,7 @@ distance_to_reset = 370
 dir = "Left"
 
 [node name="CarSprite" parent="Cars/ToLeft/Car3/Moveable/Car" parent_id_path=PackedInt32Array(757075380, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_duies")
+texture = SubResource("ViewportTexture_wu16g")
 
 [node name="Car4" parent="Cars/ToLeft" unique_id=875458050 instance=ExtResource("6_u2s04")]
 position = Vector2(-124, 128)
@@ -316,7 +316,7 @@ distance_to_reset = 370
 dir = "Left"
 
 [node name="CarSprite" parent="Cars/ToLeft/Car4/Moveable/Car" parent_id_path=PackedInt32Array(875458050, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_54nta")
+texture = SubResource("ViewportTexture_duies")
 
 [editable path="Logs/Log"]
 [editable path="Logs/Log4"]

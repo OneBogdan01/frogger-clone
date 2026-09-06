@@ -410,13 +410,6 @@ speed = 20.0
 position = Vector2(280, 192)
 speed = 20.0
 
-[node name="Moveable10" parent="Cars" unique_id=548526407 instance=ExtResource("3_gj3i2")]
-visible = false
-position = Vector2(88, 128)
-scale = Vector2(2.88, 1)
-speed = 20.0
-distance_to_reset = 370
-
 [node name="Moveable5" parent="Cars" unique_id=945952991 instance=ExtResource("3_gj3i2")]
 position = Vector2(72, 177)
 speed = 25.0
