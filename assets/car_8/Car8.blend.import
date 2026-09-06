@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bhida8g7v5g5v"
-path="res://.godot/imported/Car8.blend-42a12c2ca2d2dfa37958a09dda7926b6.scn"
+path="res://.godot/imported/Car8.blend-94881b5db4542621238e7e61e6432e1c.scn"
 
 [deps]
 
-source_file="res://assets/Car 08/Car8.blend"
-dest_files=["res://.godot/imported/Car8.blend-42a12c2ca2d2dfa37958a09dda7926b6.scn"]
+source_file="res://assets/car_8/Car8.blend"
+dest_files=["res://.godot/imported/Car8.blend-94881b5db4542621238e7e61e6432e1c.scn"]
 
 [params]
 

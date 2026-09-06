@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g8w6vy55i1mi"
-path="res://.godot/imported/Car8_grey.png-7967f27093bf1220721674d0776f8e7e.ctex"
+uid="uid://b7b3rwer6ayw0"
+path="res://.godot/imported/car_snow_red.png-1bac20e715ca40ad5651bea0c37561cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Car 08/Car8_grey.png"
-dest_files=["res://.godot/imported/Car8_grey.png-7967f27093bf1220721674d0776f8e7e.ctex"]
+source_file="res://assets/car_01/car_snow_red.png"
+dest_files=["res://.godot/imported/car_snow_red.png-1bac20e715ca40ad5651bea0c37561cf.ctex"]
 
 [params]
 
