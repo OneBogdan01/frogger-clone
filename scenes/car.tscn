@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="2_50v30"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="2_jtldb"]
 [ext_resource type="PackedScene" uid="uid://c50vixlqewqv3" path="res://scenes/car_3d_to_2d.tscn" id="3_jtldb"]
+[ext_resource type="Material" uid="uid://c7wbaakqbn4vi" path="res://shaders/car.tres" id="4_3mrxu"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jtldb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cp117"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtldb"]
@@ -23,11 +24,12 @@ obstacle_type = 1
 [node name="Car" parent="Moveable" unique_id=1843019273 instance=ExtResource("3_jtldb")]
 
 [node name="CarSprite" parent="Moveable/Car" index="0" unique_id=36621949]
+material = ExtResource("4_3mrxu")
 offset_left = -16.0
 offset_top = -1.0
 offset_right = 16.0
 offset_bottom = 15.0
-texture = SubResource("ViewportTexture_jtldb")
+texture = SubResource("ViewportTexture_cp117")
 
 [node name="SubViewport" parent="Moveable/Car" index="1" unique_id=722705536]
 own_world_3d = true

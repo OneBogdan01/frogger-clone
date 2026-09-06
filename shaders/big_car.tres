@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bal0nvpks1vb2"]
+
+[ext_resource type="Shader" uid="uid://dh623wjdkoggh" path="res://shaders/car_3d_to_2d.gdshader" id="1_1hsm3"]
+
+[resource]
+shader = ExtResource("1_1hsm3")
+shader_parameter/texture_mode = 0
+shader_parameter/alpha_mode = 0
+shader_parameter/quantize_size = 9
+shader_parameter/snap_to_world = false
+shader_parameter/limit_subpixels = true
+shader_parameter/dither_enabled = true
+shader_parameter/dither_pattern = 0
+shader_parameter/levels = 15
+shader_parameter/contrast = 1.0
+shader_parameter/brightness = 0.0
+shader_parameter/average = 0.0
+shader_parameter/palette_mode = 0

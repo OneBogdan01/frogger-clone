@@ -3,26 +3,11 @@
 [ext_resource type="Script" uid="uid://cgu454fb4qwi" path="res://scripts/moveable.gd" id="1_oi65a"]
 [ext_resource type="ArrayMesh" uid="uid://c6ugsuryum40l" path="res://assets/Car 08/Car8.obj" id="2_jfqas"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="2_wl1ky"]
-[ext_resource type="Shader" uid="uid://dh623wjdkoggh" path="res://shaders/car_3d_to_2d.gdshader" id="3_kvg7d"]
+[ext_resource type="Material" uid="uid://bal0nvpks1vb2" path="res://shaders/big_car.tres" id="3_kvg7d"]
 [ext_resource type="Texture2D" uid="uid://3k2h80sbthfg" path="res://assets/Car 08/Car8.png" id="3_rqee1"]
 [ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="7_26cm1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_axi2n"]
-shader = ExtResource("3_kvg7d")
-shader_parameter/texture_mode = 0
-shader_parameter/alpha_mode = 0
-shader_parameter/quantize_size = 9
-shader_parameter/snap_to_world = false
-shader_parameter/limit_subpixels = true
-shader_parameter/dither_enabled = true
-shader_parameter/dither_pattern = 0
-shader_parameter/levels = 15
-shader_parameter/contrast = 1.0
-shader_parameter/brightness = 0.0
-shader_parameter/average = 0.0
-shader_parameter/palette_mode = 0
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_kvg7d"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_oi65a"]
 viewport_path = NodePath("Moveable/Car/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvg7d"]
@@ -51,12 +36,12 @@ obstacle_type = 1
 [node name="Car" type="Node2D" parent="Moveable" unique_id=1843019273]
 
 [node name="CarSprite" type="TextureRect" parent="Moveable/Car" unique_id=36621949]
-material = SubResource("ShaderMaterial_axi2n")
+material = ExtResource("3_kvg7d")
 offset_left = -20.0
 offset_top = -4.0
 offset_right = 36.0
 offset_bottom = 16.0
-texture = SubResource("ViewportTexture_kvg7d")
+texture = SubResource("ViewportTexture_oi65a")
 expand_mode = 1
 
 [node name="SubViewport" type="SubViewport" parent="Moveable/Car" unique_id=722705536]

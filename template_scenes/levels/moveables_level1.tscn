@@ -37,6 +37,9 @@ size = Vector2(25, 13)
 [sub_resource type="ViewportTexture" id="ViewportTexture_mr1cq"]
 viewport_path = NodePath("Moveable/Car/SubViewport")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_xqdoo"]
+viewport_path = NodePath("Moveable/Car/SubViewport")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_isehn"]
 viewport_path = NodePath("Moveable/Car/SubViewport")
 
@@ -44,9 +47,6 @@ viewport_path = NodePath("Moveable/Car/SubViewport")
 viewport_path = NodePath("Moveable/Car/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_pibw6"]
-viewport_path = NodePath("Moveable/Car/SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_xqdoo"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Moveables" type="Node2D" unique_id=694682059]
@@ -363,21 +363,21 @@ dir = "Left"
 z_index = 2
 y_sort_enabled = true
 
-[node name="Car" parent="Cars" unique_id=2026401667 instance=ExtResource("6_mr1cq")]
-position = Vector2(78, 128)
-speed = 20.0
-distance_to_reset = 370
-
-[node name="CarSprite" parent="Cars/Car/Moveable/Car" parent_id_path=PackedInt32Array(2026401667, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_mr1cq")
-
 [node name="Car2" parent="Cars" unique_id=414696374 instance=ExtResource("6_mr1cq")]
 position = Vector2(121, 128)
 speed = 20.0
 distance_to_reset = 370
 
 [node name="CarSprite" parent="Cars/Car2/Moveable/Car" parent_id_path=PackedInt32Array(414696374, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_isehn")
+texture = SubResource("ViewportTexture_mr1cq")
+
+[node name="Car5" parent="Cars" unique_id=2026401667 instance=ExtResource("6_mr1cq")]
+position = Vector2(78, 128)
+speed = 20.0
+distance_to_reset = 370
+
+[node name="CarSprite" parent="Cars/Car5/Moveable/Car" parent_id_path=PackedInt32Array(2026401667, 1843019273) index="0" unique_id=36621949]
+texture = SubResource("ViewportTexture_xqdoo")
 
 [node name="Car3" parent="Cars" unique_id=129654987 instance=ExtResource("6_mr1cq")]
 position = Vector2(201, 128)
@@ -385,7 +385,7 @@ speed = 20.0
 distance_to_reset = 370
 
 [node name="CarSprite" parent="Cars/Car3/Moveable/Car" parent_id_path=PackedInt32Array(129654987, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_bgwcu")
+texture = SubResource("ViewportTexture_isehn")
 
 [node name="Car4" parent="Cars" unique_id=1527340082 instance=ExtResource("6_mr1cq")]
 position = Vector2(244, 128)
@@ -393,14 +393,14 @@ speed = 20.0
 distance_to_reset = 370
 
 [node name="CarSprite" parent="Cars/Car4/Moveable/Car" parent_id_path=PackedInt32Array(1527340082, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_pibw6")
+texture = SubResource("ViewportTexture_bgwcu")
 
 [node name="Moveable2" parent="Cars" unique_id=991168698 instance=ExtResource("3_gj3i2")]
 position = Vector2(200, 192)
 speed = 20.0
 
 [node name="CarSprite" parent="Cars/Moveable2/Moveable/Car" parent_id_path=PackedInt32Array(991168698, 1843019273) index="0" unique_id=36621949]
-texture = SubResource("ViewportTexture_xqdoo")
+texture = SubResource("ViewportTexture_pibw6")
 
 [node name="Moveable4" parent="Cars" unique_id=642120229 instance=ExtResource("3_gj3i2")]
 position = Vector2(112, 192)
@@ -450,8 +450,8 @@ dir = "Left"
 [editable path="Turtles/Turtle6"]
 [editable path="Turtles/Turtle7"]
 [editable path="Turtles/ToLeft/Turtle"]
-[editable path="Cars/Car"]
 [editable path="Cars/Car2"]
+[editable path="Cars/Car5"]
 [editable path="Cars/Car3"]
 [editable path="Cars/Car4"]
 [editable path="Cars/Moveable2"]
