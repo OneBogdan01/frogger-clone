@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3k2h80sbthfg"
-path.s3tc="res://.godot/imported/Car8.png-96a089a8e8a62611712a1895c1cba3fc.s3tc.ctex"
-path.etc2="res://.godot/imported/Car8.png-96a089a8e8a62611712a1895c1cba3fc.etc2.ctex"
+uid="uid://brvnudx6indln"
+path="res://.godot/imported/car_snow_gray.png-9533d98defab84c091d966da7bffe7f1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Car 08/Car8.png"
-dest_files=["res://.godot/imported/Car8.png-96a089a8e8a62611712a1895c1cba3fc.s3tc.ctex", "res://.godot/imported/Car8.png-96a089a8e8a62611712a1895c1cba3fc.etc2.ctex"]
+source_file="res://assets/car_01/car_snow_gray.png"
+dest_files=["res://.godot/imported/car_snow_gray.png-9533d98defab84c091d966da7bffe7f1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -25,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -39,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

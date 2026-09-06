@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bycg5mqoemwyx"]
 
 [ext_resource type="Script" uid="uid://cgu454fb4qwi" path="res://scripts/moveable.gd" id="1_oi65a"]
-[ext_resource type="ArrayMesh" uid="uid://c6ugsuryum40l" path="res://assets/Car 08/Car8.obj" id="2_jfqas"]
+[ext_resource type="ArrayMesh" uid="uid://c6ugsuryum40l" path="res://assets/car_8/car_8.obj" id="2_jfqas"]
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="2_wl1ky"]
 [ext_resource type="Material" uid="uid://bal0nvpks1vb2" path="res://shaders/big_car.tres" id="3_kvg7d"]
-[ext_resource type="Texture2D" uid="uid://3k2h80sbthfg" path="res://assets/Car 08/Car8.png" id="3_rqee1"]
+[ext_resource type="Texture2D" uid="uid://3k2h80sbthfg" path="res://assets/car_8/Car8.png" id="3_rqee1"]
 [ext_resource type="Texture2D" uid="uid://gcce0jvsn6e7" path="res://assets/kenney_city/Tilemap/tilemap_packed.png" id="7_26cm1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oi65a"]
