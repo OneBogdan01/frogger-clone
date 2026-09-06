@@ -55,6 +55,12 @@ func destroy_player(obstacle_type: Obstacle.ObstacleType):
 		Obstacle.ObstacleType.CAR:
 			print("player killed by car")
 			spawn_effect(killed_dead_effect)
+		Obstacle.ObstacleType.TIME:
+			print("player killed by time")
+			spawn_effect(killed_dead_effect)
+		Obstacle.ObstacleType.ENDMAP:
+			print("player killed by map")
+			spawn_effect(killed_dead_effect)
 
 	#TODO animate kill
 	#match obstacle_type:

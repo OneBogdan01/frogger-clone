@@ -3,7 +3,7 @@ extends Marker2D
 @export var player_scene: PackedScene
 @export var parent: Node2D
 @export var spawn_on_ready := true
-
+var player_instance: Node2D
 signal player_killed
 
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 func spawn_player():
 	if parent == null:
 		parent = self
-	var player_instance = player_scene.instantiate() as PlayerFrog
+	player_instance = player_scene.instantiate() as PlayerFrog
 	player_instance.global_position = global_position
 	player_instance.player_killed.connect(trigger_player_dead)
 	parent.add_child.call_deferred(player_instance)

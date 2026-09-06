@@ -16,6 +16,6 @@ func reset():
 
 func _physics_process(delta: float) -> void:
 	value -= delta
-	if value < 0.0:
+	if value <= 0.0:
 		time_run_out.emit()
 		reset()

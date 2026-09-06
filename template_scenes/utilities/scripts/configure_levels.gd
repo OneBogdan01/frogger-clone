@@ -26,11 +26,15 @@ func _ready() -> void:
 			file_name = dir_access.get_next()
 	else:
 		push_error("An error occurred when trying to access the path.")
-	%HUD.time_slider.time_run_out.connect(%World.player_killed)
+	%HUD.time_slider.time_run_out.connect(_time_ran_out)
 	%World.player_respawned.connect(%HUD.time_slider.reset)
 	%World.player_died.connect(_player_died)
 	%World.lillypad_filled.connect(_on_world_lillypad_filled)
 	%World.level_completed.connect(load_next_level)
+
+
+func _time_ran_out():
+	%World.player_spawn_point.player_instance.destroy_player(Obstacle.ObstacleType.TIME)
 
 
 func _player_died():

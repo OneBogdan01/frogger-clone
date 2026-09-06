@@ -6,6 +6,7 @@ enum ObstacleType {
 	CAR,
 	ANIMAL,
 	ENDMAP,
+	TIME,
 }
 @export var obstacle_type: ObstacleType
 

@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var lillypads_parent: Node2D
+@onready var player_spawn_point: Marker2D = %PlayerSpawnPoint
 
 var _lillypad_to_activate := 0
 signal level_completed
@@ -29,7 +30,7 @@ func player_respawn():
 	player_respawned.emit()
 	print("player respawned")
 
-	%PlayerSpawnPoint.spawn_player()
+	player_spawn_point.spawn_player()
 
 
 func _ready() -> void:
