@@ -8,13 +8,20 @@
 [node name="LoadingScreen" unique_id=1866533347 instance=ExtResource("1_q7xga")]
 script = ExtResource("2_0x5n4")
 _spatial_shader_material_dir = "res://shaders"
+_canvas_shader_material_dir = "res://shaders"
 _cache_shaders_scene = "uid://cp3pvvok1p6tm"
 _mesh = SubResource("QuadMesh_klnwy")
 _matching_extensions = Array[String]([".tres", ".material", ".res"])
 _ignore_subfolders = Array[String]([".", ".."])
-_shader_delay_timer = 0.1
+_shader_delay_timer = 0.5
+_canvas_cache_rect_size = Vector2(8, 8)
 
-[node name="SpatialShaderTypeCaches" type="Node3D" parent="." index="2" unique_id=634879644]
+[node name="CanvasItemShaderTypeCaches" type="Control" parent="." index="0" unique_id=1752432438]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+
+[node name="SpatialShaderTypeCaches" type="Node3D" parent="." index="3" unique_id=634879644]
 unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="SpatialShaderTypeCaches" index="0" unique_id=387206904]
