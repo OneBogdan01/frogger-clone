@@ -15,6 +15,8 @@ func _activated_lillypad():
 	lillypad_filled.emit()
 	print("lilypad filled: %s" % _lillypad_to_activate)
 	if _lillypad_to_activate == 0:
+		%WinSound.play()
+		await %WinSound.finished
 		level_completed.emit()
 		print("Level complete!")
 	else:

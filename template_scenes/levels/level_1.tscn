@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dlrtpunufq30p" path="res://template_scenes/utilities/scripts/configure_levels.gd" id="1_ii7ac"]
 [ext_resource type="Script" uid="uid://cvhy1a4y2g1p1" path="res://template_scenes/utilities/scripts/pause_menu_controller.gd" id="1_w8vaw"]
 [ext_resource type="PackedScene" uid="uid://ccmxpdt2ymguc" path="res://menu_template/scenes/windows/pause_menu_layer.tscn" id="2_ii7ac"]
+[ext_resource type="AudioStream" uid="uid://oaplils7g6j3" path="res://audio/lost_sound.wav" id="2_ounh3"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_menus_template/base/nodes/music_players/background_music_player.tscn" id="2_wd6sq"]
 [ext_resource type="AudioStream" uid="uid://cbktwmli1kqye" path="res://audio/frong_song_slower.wav" id="3_wd6sq"]
 [ext_resource type="Script" uid="uid://n5r7182uw8ar" path="res://menu_template/scenes/windows/game_over_controller.gd" id="4_ohfdh"]
@@ -16,7 +17,13 @@ script = ExtResource("1_ii7ac")
 path_to_levels = "res://template_scenes/levels"
 next_level = "uid://c6813mrfslyhn"
 
+[node name="LostSound" type="AudioStreamPlayer" parent="." unique_id=1518992085]
+unique_name_in_owner = true
+stream = ExtResource("2_ounh3")
+bus = &"SFX"
+
 [node name="BackgroundMusicPlayer" parent="." unique_id=1446051342 instance=ExtResource("2_wd6sq")]
+unique_name_in_owner = true
 stream = ExtResource("3_wd6sq")
 volume_db = -7.0
 

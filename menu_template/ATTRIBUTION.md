@@ -3,7 +3,9 @@
 
 
 ## Assets
-Source: [Kenney](https://kenney.nl/)  
+Used or modified from: 
+- [Tiny Swords](https://pixelfrog-assets.itch.io/tiny-swords)
+- [Kenney](https://kenney.nl/)  
 
 ### Font
 Monogram made by Vinícius Menézio (@vmenezio).

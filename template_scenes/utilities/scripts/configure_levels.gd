@@ -37,6 +37,13 @@ func _time_ran_out():
 	%World.player_spawn_point.player_instance.destroy_player(Obstacle.ObstacleType.TIME)
 
 
+func lost_game():
+	ProjectMusicController.fade_out(0.01)
+	%LostSound.play()
+	await %LostSound.finished
+	%GameOverController.game_over()
+
+
 func _player_died():
 	var has_health = false
 	for node in %HUD.health_container.get_children():
@@ -46,7 +53,7 @@ func _player_died():
 			has_health = true
 			break
 	if has_health == false:
-		%GameOverController.game_over()
+		lost_game()
 	else:
 		%World.player_respawn()
 
