@@ -92,7 +92,7 @@ const LANDING := Vector2(1.25, 0.75) # impact
 func move_frog(direction: Vector2i) -> void:
 	if _tween and _tween.is_running():
 		return
-
+	%JumpSound.play()
 	ray_direction.target_position = direction * tile_size
 	ray_direction.force_raycast_update()
 	if ray_direction.is_colliding():

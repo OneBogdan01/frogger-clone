@@ -199,7 +199,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="AspectRatioContainer/SubViewportContainer" unique_id=1151473828]
 disable_3d = true
 handle_input_locally = false
-snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
 scaling_3d_mode = 5
 canvas_item_default_texture_filter = 0
 physics_object_picking = true

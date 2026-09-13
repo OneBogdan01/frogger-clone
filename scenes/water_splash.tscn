@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cp8ifil1at4xf"]
 
 [ext_resource type="Texture2D" uid="uid://cjlaavc5ra4rg" path="res://assets/Tiny Swords (Free Pack) (1)/Particle FX/Water Splash.png" id="1_l75kt"]
+[ext_resource type="AudioStream" uid="uid://bkiauajdxhdsw" path="res://audio/water_splash.wav" id="2_ckhv4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ckhv4"]
 atlas = ExtResource("1_l75kt")
@@ -76,6 +77,11 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bhunq"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("2_ckhv4")
+
 [node name="WaterEffect" type="Node2D" unique_id=800149398]
 process_mode = 3
 
@@ -86,5 +92,10 @@ sprite_frames = SubResource("SpriteFrames_bhunq")
 autoplay = "default"
 frame = 9
 frame_progress = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1463878178]
+stream = SubResource("AudioStreamRandomizer_bhunq")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="animation_finished" from="Sprite" to="." method="queue_free"]

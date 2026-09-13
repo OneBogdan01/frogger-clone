@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cnr2bbttqxm07" path="res://menu_template/scenes/menus/main_menu/main_menu_with_animations.gd" id="2_whqmc"]
 [ext_resource type="PackedScene" uid="uid://bpl52d5twmjga" path="res://menu_template/scenes/windows/main_menu_options_window.tscn" id="3_q7iy0"]
 [ext_resource type="PackedScene" uid="uid://67cnm88gla1m" path="res://menu_template/scenes/windows/main_menu_credits_window.tscn" id="4_nsdec"]
+[ext_resource type="AudioStream" uid="uid://cey5mbtneew26" path="res://modiofied_song.res" id="5_dpbu2"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -326,11 +327,16 @@ tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
+[node name="BackgroundMusicPlayer" parent="." index="3" unique_id=1141822549]
+stream = ExtResource("5_dpbu2")
+volume_db = -7.0
+pitch_scale = 0.6
+
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" parent_id_path=PackedInt32Array(2112060331) index="0" unique_id=556427956]
 modulate = Color(1, 1, 1, 0)
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0" unique_id=359406872]
-text = "BogiGodotTools"
+text = "Froggy Splat"
 
 [node name="SubTitleMargin" parent="MenuContainer" parent_id_path=PackedInt32Array(396616752) index="1" unique_id=1510335937]
 visible = false
@@ -344,8 +350,14 @@ modulate = Color(1, 1, 1, 0)
 [node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0" unique_id=2017477786]
 lock = true
 
+[node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="0" unique_id=2044537792]
+text = "Start Game"
+
 [node name="VersionContainer" parent="VersionMargin" parent_id_path=PackedInt32Array(1732528471) index="0" unique_id=1603969262]
 modulate = Color(1, 1, 1, 0)
+
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0" unique_id=793266470]
+text = "v0.0.8"
 
 [node name="MouseFilter" type="Control" parent="." index="8" unique_id=33285267]
 layout_mode = 1

@@ -9,6 +9,7 @@ enum ObstacleType {
 	TIME,
 }
 @export var obstacle_type: ObstacleType
+signal player_detected
 
 
 func _physics_process(_delta: float) -> void:
@@ -17,4 +18,5 @@ func _physics_process(_delta: float) -> void:
 		if player == null:
 			push_error("Player not found interacting with" + name)
 			return
+		player_detected.emit()
 		player.destroy_player(obstacle_type)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bwor28h3l1vvw"]
 
 [ext_resource type="Texture2D" uid="uid://b4ehidch8edj6" path="res://assets/spritesheet.png" id="1_wywbb"]
+[ext_resource type="AudioStream" uid="uid://bnl06ug3o1ovj" path="res://audio/death.wav" id="2_yik17"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yik17"]
 atlas = ExtResource("1_wywbb")
@@ -83,6 +84,11 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bhunq"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("2_yik17")
+
 [node name="PlayerDeath" type="Node2D" unique_id=1591193455]
 process_mode = 3
 
@@ -92,5 +98,10 @@ sprite_frames = SubResource("SpriteFrames_bhunq")
 autoplay = "default"
 frame = 10
 frame_progress = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=219124759]
+stream = SubResource("AudioStreamRandomizer_bhunq")
+autoplay = true
+bus = &"SFX"
 
 [connection signal="animation_finished" from="Spritesheet" to="." method="queue_free"]

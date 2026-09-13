@@ -3,9 +3,15 @@
 [ext_resource type="Script" uid="uid://ckg52431x810v" path="res://scripts/lillypad.gd" id="1_0clm6"]
 [ext_resource type="Texture2D" uid="uid://b2u3jjhgxkaw5" path="res://assets/sprites/lillypad.png" id="2_wykk6"]
 [ext_resource type="Texture2D" uid="uid://6p80psu4xqnv" path="res://assets/sprites/frog.png" id="3_wykk6"]
+[ext_resource type="AudioStream" uid="uid://5g17mu7vtga2" path="res://audio/lillypad.wav" id="4_o2mwq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohfdh"]
 radius = 7.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g0vs8"]
+random_pitch = 1.3348398
+streams_count = 1
+stream_0/stream = ExtResource("4_o2mwq")
 
 [node name="Lillypad" type="Area2D" unique_id=829702650]
 collision_layer = 8
@@ -44,4 +50,9 @@ hframes = 2
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_ohfdh")
 
+[node name="ActivatedSound" type="AudioStreamPlayer" parent="." unique_id=328670542]
+stream = SubResource("AudioStreamRandomizer_g0vs8")
+bus = &"SFX"
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="player_filled" from="." to="ActivatedSound" method="play"]

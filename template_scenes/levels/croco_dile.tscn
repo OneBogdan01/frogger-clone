@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ohygu1bvrr1" path="res://scripts/obstacle.gd" id="5_u0hjo"]
 [ext_resource type="Texture2D" uid="uid://chpa2w2jo3gpj" path="res://assets/sprites/croco_head.png" id="6_d03t0"]
 [ext_resource type="PackedScene" uid="uid://dwlrcxgeva326" path="res://scenes/water_foam.tscn" id="7_f6cv4"]
+[ext_resource type="AudioStream" uid="uid://dk22lcqf6n3so" path="res://audio/crocodile_eat.wav" id="7_gnwbf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cq5k7"]
 texture = ExtResource("2_gnwbf")
@@ -119,6 +120,11 @@ shape = SubResource("CircleShape2D_g5036")
 disabled = true
 debug_color = Color(0.96168846, 1.540184e-06, 0.51167804, 0.41960785)
 
+[node name="BitSound" type="AudioStreamPlayer" parent="TriggerPeriodically/Obstacle" index="2" unique_id=477982984]
+unique_name_in_owner = true
+stream = ExtResource("7_gnwbf")
+bus = &"SFX"
+
 [node name="OverWater" type="Timer" parent="." index="5" unique_id=2067954267]
 unique_name_in_owner = true
 wait_time = 2.0
@@ -158,5 +164,6 @@ position = Vector2(9.000015, 0)
 script = null
 
 [connection signal="area_entered" from="TriggerPeriodically/Obstacle" to="TriggerPeriodically/Obstacle" method="_on_area_entered"]
+[connection signal="player_detected" from="TriggerPeriodically/Obstacle" to="TriggerPeriodically/Obstacle/BitSound" method="play"]
 [connection signal="timeout" from="OverWater" to="TriggerPeriodically" method="_enter_water"]
 [connection signal="timeout" from="UnderWater" to="TriggerPeriodically" method="_exit_water"]
