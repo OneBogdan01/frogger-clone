@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://7s77gytclc2w" path="res://template_scenes/utilities/scripts/asset_store_generator.gd" id="1_7on7k"]
 [ext_resource type="Texture2D" uid="uid://dxpjd84map15f" path="res://icon.svg" id="2_0sxh7"]
+[ext_resource type="Texture2D" uid="uid://k2fk2pg12j8n" path="res://assets/sprites/icon.png" id="2_ki6fs"]
+[ext_resource type="Texture2D" uid="uid://cd7qjq7k5tnu8" path="res://store_assets/screenshots/screenshot_13.png" id="3_nlfku"]
+[ext_resource type="FontFile" uid="uid://c0b2ell2wvtda" path="res://assets/font/monogram/ttf/monogram.ttf" id="4_h07xf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t1h80"]
 font_size = 100
@@ -38,13 +41,43 @@ anchors_preset = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
+[node name="TextureRect" type="TextureRect" parent="Screenshots/Icon" unique_id=494681393]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ki6fs")
+
 [node name="ItchCoverImage" type="Control" parent="Screenshots" unique_id=131657061]
 clip_contents = true
 anchors_preset = 0
 offset_right = 630.0
 offset_bottom = 500.0
 
+[node name="Screenshot13" type="Sprite2D" parent="Screenshots/ItchCoverImage" unique_id=282211944]
+position = Vector2(255.99997, 22.000004)
+scale = Vector2(1.9171605, 1.9171605)
+texture = ExtResource("3_nlfku")
+
+[node name="Label" type="Label" parent="Screenshots/ItchCoverImage" unique_id=1006407560]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 256.0
+grow_horizontal = 2
+theme_override_constants/line_spacing = 6
+theme_override_constants/paragraph_spacing = 5
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("4_h07xf")
+theme_override_font_sizes/font_size = 128
+text = "Froggy Splat"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="header_capsule" type="Control" parent="Screenshots" unique_id=25475010]
+visible = false
 anchors_preset = 0
 offset_right = 920.0
 offset_bottom = 430.0
@@ -259,6 +292,7 @@ offset_right = 184.0
 offset_bottom = 184.0
 
 [node name="Icon" type="Sprite2D" parent="Screenshots/community_icon" unique_id=1212819119]
+visible = false
 position = Vector2(91, 90)
 scale = Vector2(1.22461, 1.16803)
 texture = ExtResource("2_0sxh7")
@@ -266,8 +300,9 @@ texture = ExtResource("2_0sxh7")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1403147132]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 16.0
+offset_right = 2016.0
+offset_bottom = 2000.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=922515628]
 unique_name_in_owner = true

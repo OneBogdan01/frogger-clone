@@ -39,9 +39,11 @@ file_logging/enable_file_logging=true
 
 window/size/viewport_width=640
 window/size/viewport_height=480
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
 [editor_plugins]
